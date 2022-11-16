@@ -22,6 +22,10 @@
 		BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */; };
 		BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */; };
 		BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88644A29250AE900709971 /* CoreDataModel.swift */; };
+		BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88644E29253B1700709971 /* ServerSettingsViewController.swift */; };
+		BA88645129253CC700709971 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645029253CC700709971 /* BaseViewController.swift */; };
+		BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645229253D0F00709971 /* ClientSettingsViewController.swift */; };
+		BA88645529253D2500709971 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645429253D2500709971 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BA88644A29250AE900709971 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		BA88644E29253B1700709971 /* ServerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewController.swift; sourceTree = "<group>"; };
+		BA88645029253CC700709971 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		BA88645229253D0F00709971 /* ClientSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewController.swift; sourceTree = "<group>"; };
+		BA88645429253D2500709971 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
 		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 		BA88640F2924F94700709971 /* PineChat */ = {
 			isa = PBXGroup;
 			children = (
+				BA88644C29253AF100709971 /* MVVM */,
 				BA8864432925068B00709971 /* CoreData */,
 				BA8864102924F94700709971 /* AppDelegate.swift */,
 				BA8864122924F94700709971 /* SceneDelegate.swift */,
@@ -157,6 +166,25 @@
 				BA88644A29250AE900709971 /* CoreDataModel.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BA88644C29253AF100709971 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				BA88644D29253AFA00709971 /* Views */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		BA88644D29253AFA00709971 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA88644E29253B1700709971 /* ServerSettingsViewController.swift */,
+				BA88645029253CC700709971 /* BaseViewController.swift */,
+				BA88645229253D0F00709971 /* ClientSettingsViewController.swift */,
+				BA88645429253D2500709971 /* MainViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D30FA627B3927F9134357A4E /* Pods */ = {
@@ -396,9 +424,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8864152924F94700709971 /* ViewController.swift in Sources */,
+				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
 				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
+				BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */,
 				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
 				BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */,
+				BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */,
+				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
