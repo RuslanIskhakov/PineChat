@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
+		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
+		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
+		BA8864182924F94700709971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8864162924F94700709971 /* Main.storyboard */; };
+		BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA8864192924F94700709971 /* PineChat.xcdatamodeld */; };
+		BA88641D2924F94A00709971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA88641C2924F94A00709971 /* Assets.xcassets */; };
+		BA8864202924F94A00709971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA88641E2924F94A00709971 /* LaunchScreen.storyboard */; };
+		BA88642B2924F94A00709971 /* PineChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88642A2924F94A00709971 /* PineChatTests.swift */; };
+		BA8864352924F94A00709971 /* PineChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864342924F94A00709971 /* PineChatUITests.swift */; };
+		BA8864372924F94A00709971 /* PineChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA8864272924F94A00709971 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA8864052924F94700709971 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA88640C2924F94700709971;
+			remoteInfo = PineChat;
+		};
+		BA8864312924F94A00709971 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA8864052924F94700709971 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA88640C2924F94700709971;
+			remoteInfo = PineChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BA8864142924F94700709971 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA8864172924F94700709971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA88641A2924F94700709971 /* PineChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PineChat.xcdatamodel; sourceTree = "<group>"; };
+		BA88641C2924F94A00709971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA88641F2924F94A00709971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA8864212924F94A00709971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA8864262924F94A00709971 /* PineChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA88642A2924F94A00709971 /* PineChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatTests.swift; sourceTree = "<group>"; };
+		BA8864302924F94A00709971 /* PineChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8864342924F94A00709971 /* PineChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITests.swift; sourceTree = "<group>"; };
+		BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA88640A2924F94700709971 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8864232924F94A00709971 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA88642D2924F94A00709971 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA8864042924F94700709971 = {
+			isa = PBXGroup;
+			children = (
+				BA88640F2924F94700709971 /* PineChat */,
+				BA8864292924F94A00709971 /* PineChatTests */,
+				BA8864332924F94A00709971 /* PineChatUITests */,
+				BA88640E2924F94700709971 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA88640E2924F94700709971 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA88640D2924F94700709971 /* PineChat.app */,
+				BA8864262924F94A00709971 /* PineChatTests.xctest */,
+				BA8864302924F94A00709971 /* PineChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA88640F2924F94700709971 /* PineChat */ = {
+			isa = PBXGroup;
+			children = (
+				BA8864102924F94700709971 /* AppDelegate.swift */,
+				BA8864122924F94700709971 /* SceneDelegate.swift */,
+				BA8864142924F94700709971 /* ViewController.swift */,
+				BA8864162924F94700709971 /* Main.storyboard */,
+				BA88641C2924F94A00709971 /* Assets.xcassets */,
+				BA88641E2924F94A00709971 /* LaunchScreen.storyboard */,
+				BA8864212924F94A00709971 /* Info.plist */,
+				BA8864192924F94700709971 /* PineChat.xcdatamodeld */,
+			);
+			path = PineChat;
+			sourceTree = "<group>";
+		};
+		BA8864292924F94A00709971 /* PineChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA88642A2924F94A00709971 /* PineChatTests.swift */,
+			);
+			path = PineChatTests;
+			sourceTree = "<group>";
+		};
+		BA8864332924F94A00709971 /* PineChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA8864342924F94A00709971 /* PineChatUITests.swift */,
+				BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */,
+			);
+			path = PineChatUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA88640C2924F94700709971 /* PineChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA88643A2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChat" */;
+			buildPhases = (
+				BA8864092924F94700709971 /* Sources */,
+				BA88640A2924F94700709971 /* Frameworks */,
+				BA88640B2924F94700709971 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PineChat;
+			productName = PineChat;
+			productReference = BA88640D2924F94700709971 /* PineChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA8864252924F94A00709971 /* PineChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA88643D2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatTests" */;
+			buildPhases = (
+				BA8864222924F94A00709971 /* Sources */,
+				BA8864232924F94A00709971 /* Frameworks */,
+				BA8864242924F94A00709971 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA8864282924F94A00709971 /* PBXTargetDependency */,
+			);
+			name = PineChatTests;
+			productName = PineChatTests;
+			productReference = BA8864262924F94A00709971 /* PineChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA88642F2924F94A00709971 /* PineChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8864402924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatUITests" */;
+			buildPhases = (
+				BA88642C2924F94A00709971 /* Sources */,
+				BA88642D2924F94A00709971 /* Frameworks */,
+				BA88642E2924F94A00709971 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA8864322924F94A00709971 /* PBXTargetDependency */,
+			);
+			name = PineChatUITests;
+			productName = PineChatUITests;
+			productReference = BA8864302924F94A00709971 /* PineChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA8864052924F94700709971 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					BA88640C2924F94700709971 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					BA8864252924F94A00709971 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = BA88640C2924F94700709971;
+					};
+					BA88642F2924F94A00709971 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = BA88640C2924F94700709971;
+					};
+				};
+			};
+			buildConfigurationList = BA8864082924F94700709971 /* Build configuration list for PBXProject "PineChat" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA8864042924F94700709971;
+			productRefGroup = BA88640E2924F94700709971 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA88640C2924F94700709971 /* PineChat */,
+				BA8864252924F94A00709971 /* PineChatTests */,
+				BA88642F2924F94A00709971 /* PineChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA88640B2924F94700709971 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8864202924F94A00709971 /* LaunchScreen.storyboard in Resources */,
+				BA88641D2924F94A00709971 /* Assets.xcassets in Resources */,
+				BA8864182924F94700709971 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8864242924F94A00709971 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA88642E2924F94A00709971 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA8864092924F94700709971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8864152924F94700709971 /* ViewController.swift in Sources */,
+				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
+				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
+				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8864222924F94A00709971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA88642B2924F94A00709971 /* PineChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA88642C2924F94A00709971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8864372924F94A00709971 /* PineChatUITestsLaunchTests.swift in Sources */,
+				BA8864352924F94A00709971 /* PineChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA8864282924F94A00709971 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA88640C2924F94700709971 /* PineChat */;
+			targetProxy = BA8864272924F94A00709971 /* PBXContainerItemProxy */;
+		};
+		BA8864322924F94A00709971 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA88640C2924F94700709971 /* PineChat */;
+			targetProxy = BA8864312924F94A00709971 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA8864162924F94700709971 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA8864172924F94700709971 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA88641E2924F94A00709971 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA88641F2924F94A00709971 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA8864382924F94A00709971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA8864392924F94A00709971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA88643B2924F94A00709971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PineChat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA88643C2924F94A00709971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PineChat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BA88643E2924F94A00709971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PineChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PineChat";
+			};
+			name = Debug;
+		};
+		BA88643F2924F94A00709971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PineChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PineChat";
+			};
+			name = Release;
+		};
+		BA8864412924F94A00709971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PineChat;
+			};
+			name = Debug;
+		};
+		BA8864422924F94A00709971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A43ZVNV86W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ds.pinechat.PineChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PineChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA8864082924F94700709971 /* Build configuration list for PBXProject "PineChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8864382924F94A00709971 /* Debug */,
+				BA8864392924F94A00709971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA88643A2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA88643B2924F94A00709971 /* Debug */,
+				BA88643C2924F94A00709971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA88643D2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA88643E2924F94A00709971 /* Debug */,
+				BA88643F2924F94A00709971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA8864402924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8864412924F94A00709971 /* Debug */,
+				BA8864422924F94A00709971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA8864192924F94700709971 /* PineChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA88641A2924F94700709971 /* PineChat.xcdatamodel */,
+			);
+			currentVersion = BA88641A2924F94700709971 /* PineChat.xcdatamodel */;
+			path = PineChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA8864052924F94700709971 /* Project object */;
+}
