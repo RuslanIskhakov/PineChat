@@ -19,6 +19,9 @@
 		BA88642B2924F94A00709971 /* PineChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88642A2924F94A00709971 /* PineChatTests.swift */; };
 		BA8864352924F94A00709971 /* PineChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864342924F94A00709971 /* PineChatUITests.swift */; };
 		BA8864372924F94A00709971 /* PineChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */; };
+		BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */; };
+		BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */; };
+		BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88644A29250AE900709971 /* CoreDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		BA8864302924F94A00709971 /* PineChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864342924F94A00709971 /* PineChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITests.swift; sourceTree = "<group>"; };
 		BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BA88644A29250AE900709971 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
 		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		BA88640F2924F94700709971 /* PineChat */ = {
 			isa = PBXGroup;
 			children = (
+				BA8864432925068B00709971 /* CoreData */,
 				BA8864102924F94700709971 /* AppDelegate.swift */,
 				BA8864122924F94700709971 /* SceneDelegate.swift */,
 				BA8864142924F94700709971 /* ViewController.swift */,
@@ -140,6 +147,16 @@
 				BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */,
 			);
 			path = PineChatUITests;
+			sourceTree = "<group>";
+		};
+		BA8864432925068B00709971 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */,
+				BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */,
+				BA88644A29250AE900709971 /* CoreDataModel.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		D30FA627B3927F9134357A4E /* Pods */ = {
@@ -381,6 +398,9 @@
 				BA8864152924F94700709971 /* ViewController.swift in Sources */,
 				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
 				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
+				BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */,
+				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
+				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
