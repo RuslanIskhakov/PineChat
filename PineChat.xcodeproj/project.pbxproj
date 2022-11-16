@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */; };
+		9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
 		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.debug.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.debug.xcconfig"; sourceTree = "<group>"; };
+		B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,9 @@
 		BA8864302924F94A00709971 /* PineChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864342924F94A00709971 /* PineChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITests.swift; sourceTree = "<group>"; };
 		BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
+		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +95,8 @@
 				BA8864292924F94A00709971 /* PineChatTests */,
 				BA8864332924F94A00709971 /* PineChatUITests */,
 				BA88640E2924F94700709971 /* Products */,
+				D30FA627B3927F9134357A4E /* Pods */,
+				ED99A793B2C11D39B2535F82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +142,26 @@
 			path = PineChatUITests;
 			sourceTree = "<group>";
 		};
+		D30FA627B3927F9134357A4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */,
+				BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */,
+				CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */,
+				E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED99A793B2C11D39B2535F82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */,
+				06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA88643A2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChat" */;
 			buildPhases = (
+				050AEEE0609DB96E563D863D /* [CP] Check Pods Manifest.lock */,
 				BA8864092924F94700709971 /* Sources */,
 				BA88640A2924F94700709971 /* Frameworks */,
 				BA88640B2924F94700709971 /* Resources */,
+				8E179B42B3A9A2579A1C6235 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA88643D2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatTests" */;
 			buildPhases = (
+				73C56F1585AF972446BF4555 /* [CP] Check Pods Manifest.lock */,
 				BA8864222924F94A00709971 /* Sources */,
 				BA8864232924F94A00709971 /* Frameworks */,
 				BA8864242924F94A00709971 /* Resources */,
+				5B5D597190E976F0A210CCA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +246,7 @@
 				};
 			};
 			buildConfigurationList = BA8864082924F94700709971 /* Build configuration list for PBXProject "PineChat" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -255,6 +291,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		050AEEE0609DB96E563D863D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PineChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B5D597190E976F0A210CCA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73C56F1585AF972446BF4555 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PineChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E179B42B3A9A2579A1C6235 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA8864092924F94700709971 /* Sources */ = {
@@ -436,6 +553,7 @@
 		};
 		BA88643B2924F94A00709971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,6 +567,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +583,7 @@
 		};
 		BA88643C2924F94A00709971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -477,6 +597,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,6 +613,7 @@
 		};
 		BA88643E2924F94A00709971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +634,7 @@
 		};
 		BA88643F2924F94A00709971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
