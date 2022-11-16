@@ -21,7 +21,7 @@ class CoreDataModel {
     }()
 
     lazy var context: NSManagedObjectContext = {
-        return persistentContainer.viewContext
+        return persistentContainer.newBackgroundContext()
     }()
 
     init() {
@@ -29,12 +29,14 @@ class CoreDataModel {
     }
 
     func putMessage(from: String, text: String, id: String) {
-        var message = MessageEntity(context: self.context)
-        message.userName = from
-        message.text = text
-        message.id = UUID(uuidString: id)
+        self.context.perform {
+            let message = MessageEntity(context: self.context)
+            message.userName = from
+            message.text = text
+            message.id = UUID(uuidString: id)
 
-        self.saveContext()
+            self.saveContext()
+        }
     }
 
     func saveContext () {
@@ -49,32 +51,49 @@ class CoreDataModel {
         }
     }
 
-    func getAllMessages() {
-        let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
-        if let messages = try? context.fetch(fetchRequest) {
-            messages.forEach{print("Message: \($0.string)")}
+    func getAllMessages() -> [PersistantMessage] {
+        var result = [PersistantMessage]()
+
+        self.context.performAndWait{
+            let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
+            if let messages = try? context.fetch(fetchRequest) {
+                result.append(contentsOf: messages.map{$0.toPersistantMessage()})
+            }
         }
+        return result
     }
 
-    func getAllMessagesSortedById() {
-        let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
-        let sort = NSSortDescriptor(key: "id", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        if let messages = try? context.fetch(fetchRequest) {
-            messages.forEach{print("Message: \($0.string)")}
+    func getAllMessagesSortedById() -> [PersistantMessage] {
+        var result = [PersistantMessage]()
+
+        self.context.performAndWait{
+            let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
+            let sort = NSSortDescriptor(key: "id", ascending: true)
+            fetchRequest.sortDescriptors = [sort]
+            if let messages = try? context.fetch(fetchRequest) {
+                result.append(contentsOf: messages.map{$0.toPersistantMessage()})
+            }
         }
+        return result
     }
 
-    func getAllMessagesSortedByDate(limit: Int? = nil) {
-        let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
-        let sort = NSSortDescriptor(key: "date", ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        if let limit {
-            fetchRequest.fetchLimit = limit
+    func getAllMessagesSortedByDate(limit: Int? = nil) -> [PersistantMessage]{
+
+        var result = [PersistantMessage]()
+
+        self.context.performAndWait{
+            let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
+            let sort = NSSortDescriptor(key: "date", ascending: false)
+            fetchRequest.sortDescriptors = [sort]
+            if let limit {
+                fetchRequest.fetchLimit = limit
+            }
+            if let messages = try? context.fetch(fetchRequest) {
+                result.append(contentsOf: messages.map{$0.toPersistantMessage()})
+            }
         }
-        if let messages = try? context.fetch(fetchRequest) {
-            messages.forEach{print("Message: \($0.string)")}
-        }
+
+        return result
     }
 
 //    func getLatestMessage() -> MessageEntity {

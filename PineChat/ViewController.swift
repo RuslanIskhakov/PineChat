@@ -18,13 +18,13 @@ class ViewController: UIViewController {
 //        coreDataModel.putMessage(from: "Mike Anderson", text: "Hi! Anybody here?", id: UUID().uuidString)
 //        coreDataModel.putMessage(from: "Arnold Smith", text: "Nope!!!", id: UUID().uuidString)
 
-        coreDataModel.getAllMessages()
+        coreDataModel.getAllMessages().forEach{print("Message: \($0)")}
         print("==========================")
-        coreDataModel.getAllMessagesSortedByDate()
+        coreDataModel.getAllMessagesSortedByDate().forEach{print("Message: \($0)")}
         print("==========================")
-        coreDataModel.getAllMessagesSortedByDate(limit: 2)
+        coreDataModel.getAllMessagesSortedByDate(limit: 2).forEach{print("Message: \($0)")}
         print("==========================")
-        coreDataModel.getAllMessagesSortedByDate(limit: 1)
+        coreDataModel.getAllMessagesSortedByDate(limit: 1).forEach{print("Message: \($0)")}
     }
 
 

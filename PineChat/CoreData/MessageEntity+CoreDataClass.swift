@@ -19,6 +19,21 @@ public class MessageEntity: NSManagedObject {
     }
 
     public var string: String {
-        return "UUID: \(self.id), date: \(self.date), from: \(self.userName), text: \(self.text)"
+        return "UUID: \(self.id?.uuidString), date: \(self.date), from: \(self.userName), text: \(self.text)"
     }
+
+    public func toPersistantMessage() -> PersistantMessage {
+        return PersistantMessage(
+            id: self.id?.uuidString ?? "",
+            date: self.date,
+            userName: self.userName ?? "",
+            text: self.text ?? "")
+    }
+}
+
+public struct PersistantMessage {
+    let id: String
+    let date: Date?
+    let userName: String
+    let text: String
 }
