@@ -135,14 +135,6 @@ extension ChatViewController: UITableViewDataSource {
         return self.viewModel?.messages.count ?? 0
     }
 
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {0.0}
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {0.0}
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {nil}
-//
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {nil}
-
 }
 
 extension ChatViewController: UITableViewDelegate {

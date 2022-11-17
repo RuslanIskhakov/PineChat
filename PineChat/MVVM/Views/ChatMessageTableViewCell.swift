@@ -76,7 +76,7 @@ class ChatMessageTableViewCell: UITableViewCell {
             UIColor.white :
             UIColor(red: 223, green: 253, blue: 212)
 
-        self.layoutIfNeeded()
+        self.setNeedsLayout()
     }
     
 }
