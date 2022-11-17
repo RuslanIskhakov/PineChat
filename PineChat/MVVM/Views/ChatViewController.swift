@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ChatViewController: BaseViewController {
 
@@ -25,6 +26,8 @@ class ChatViewController: BaseViewController {
 
         self.viewModel?.configureView()
 
+        self.setupBindings()
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
             self,
@@ -38,6 +41,11 @@ class ChatViewController: BaseViewController {
             object: nil)
 
         self.textView.delegate = self
+
+        self.tableView.register(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "chatMessage")
+        self.tableView.allowsSelection = false
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
 
     }
 
@@ -56,6 +64,18 @@ class ChatViewController: BaseViewController {
     }
 
     @IBAction func sendTap(_ sender: Any) {
+
+    }
+
+    private func setupBindings() {
+
+        self.viewModel?.updateEvents
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] _ in
+                guard let self else { return }
+                self.tableView.reloadData()
+            }).disposed(by: self.disposeBag)
 
     }
 }
@@ -91,4 +111,29 @@ extension ChatViewController: UITextViewDelegate {
         self.textView.resignFirstResponder()
         navigationItem.rightBarButtonItem = nil
     }
+}
+
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if
+            let message = self.viewModel?.messages[indexPath.row],
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "chatMessage", for: indexPath) as? ChatMessageTableViewCell {
+            cell.setup(with: message)
+            return cell
+        }
+
+        return UITableViewCell(frame: .zero)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {1}
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel?.messages.count ?? 0
+    }
+
+}
+
+extension ChatViewController: UITableViewDelegate {
+
 }
