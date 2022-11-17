@@ -82,6 +82,18 @@ class ChatViewController: BaseViewController {
             .subscribe(onNext: {[weak self] _ in
                 guard let self else { return }
                 self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false)
+            }).disposed(by: self.disposeBag)
+
+        self.viewModel?.viewState
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] event in
+                guard let self else { return }
+                guard case .loading = event else { return }
+                self.tableView.performBatchUpdates({
+                    self.tableView.insertRows(at: [IndexPath(row: 0,section: 0)], with: .automatic)
+                }, completion: nil)
             }).disposed(by: self.disposeBag)
 
     }
