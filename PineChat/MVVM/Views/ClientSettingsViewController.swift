@@ -19,7 +19,7 @@ class ClientSettingsViewController: BaseViewController {
 
         self.viewModel = ClientSettingsViewModel(with: AppDelegate.appModel)
 
-        self.title = "Клиент"
+        self.title = ""
 
         self.viewModel?.configureView()
 

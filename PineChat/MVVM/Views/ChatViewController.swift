@@ -14,8 +14,16 @@ class ChatViewController: BaseViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
+    private var viewModel: ChatViewModelProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel = ChatViewModel(with: AppDelegate.appModel)
+
+        self.title = "Чат у сосны"
+
+        self.viewModel?.configureView()
 
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
@@ -30,6 +38,7 @@ class ChatViewController: BaseViewController {
             object: nil)
 
         self.textView.delegate = self
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
