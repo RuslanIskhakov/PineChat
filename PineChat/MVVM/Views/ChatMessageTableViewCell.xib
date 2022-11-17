@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-9X-WMw">
-                        <rect key="frame" x="0.0" y="0.0" width="569" height="146"/>
+                        <rect key="frame" x="0.0" y="4" width="569" height="138"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-1x-OPw">
                                 <rect key="frame" x="8" y="4" width="514" height="22"/>
@@ -37,7 +37,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0p-r6-SNI">
-                                <rect key="frame" x="8" y="34" width="553" height="104"/>
+                                <rect key="frame" x="8" y="34" width="553" height="96"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,9 +66,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="7hA-9X-WMw" secondAttribute="bottom" id="AHe-va-Nf7"/>
+                    <constraint firstAttribute="bottom" secondItem="7hA-9X-WMw" secondAttribute="bottom" constant="4" id="AHe-va-Nf7"/>
                     <constraint firstAttribute="trailing" secondItem="7hA-9X-WMw" secondAttribute="trailing" id="WDD-Dg-u3y"/>
-                    <constraint firstItem="7hA-9X-WMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oFs-w9-IJG"/>
+                    <constraint firstItem="7hA-9X-WMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="oFs-w9-IJG"/>
                     <constraint firstItem="7hA-9X-WMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rj6-il-uVB"/>
                 </constraints>
             </tableViewCellContentView>

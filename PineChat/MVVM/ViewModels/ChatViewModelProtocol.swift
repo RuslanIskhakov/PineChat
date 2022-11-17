@@ -24,4 +24,6 @@ protocol ChatViewModelProtocol: AnyObject {
     var messages: [ChatMessageEntity] {get}
 
     func configureView()
+
+    func postMessage(_ text: String)
 }

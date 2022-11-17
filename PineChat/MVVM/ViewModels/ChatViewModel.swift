@@ -134,4 +134,12 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
         self.updateEvents.accept(())
     }
+
+    func postMessage(_ text: String) {
+        self.messages.append(
+            ChatMessageEntity(id: "", date: Date(), userName: "R I", text: text, type: .outgoing)
+        )
+
+        self.updateEvents.accept(())
+    }
 }

@@ -35,12 +35,6 @@ class ChatMessageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
 

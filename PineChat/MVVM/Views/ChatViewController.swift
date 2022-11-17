@@ -67,7 +67,11 @@ class ChatViewController: BaseViewController {
     }
 
     @IBAction func sendTap(_ sender: Any) {
-
+        if let message = self.textView.text {
+            self.viewModel?.postMessage(message)
+            self.textView.text = nil
+            self.dismissKeyboard()
+        }
     }
 
     private func setupBindings() {
@@ -133,6 +137,10 @@ extension ChatViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.messages.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
 
 }
