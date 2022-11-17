@@ -46,6 +46,9 @@ class ChatViewController: BaseViewController {
         self.tableView.allowsSelection = false
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44
+        self.tableView.contentInsetAdjustmentBehavior = .never
 
     }
 
@@ -131,6 +134,14 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.messages.count ?? 0
     }
+
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {0.0}
+//
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {0.0}
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {nil}
+//
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {nil}
 
 }
 

@@ -26,6 +26,7 @@
 		BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D4744292675EA002E340B /* ChatMessageEntity.swift */; };
 		BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474629267928002E340B /* ChatViewModelProtocol.swift */; };
 		BA7D474929267957002E340B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474829267957002E340B /* ChatViewModel.swift */; };
+		BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
 		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
@@ -83,6 +84,7 @@
 		BA7D4744292675EA002E340B /* ChatMessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageEntity.swift; sourceTree = "<group>"; };
 		BA7D474629267928002E340B /* ChatViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelProtocol.swift; sourceTree = "<group>"; };
 		BA7D474829267957002E340B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICOlor+RGBinit.swift"; sourceTree = "<group>"; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		BA7D474A29268187002E340B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BA8864042924F94700709971 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +221,7 @@
 		BA88640F2924F94700709971 /* PineChat */ = {
 			isa = PBXGroup;
 			children = (
+				BA7D474A29268187002E340B /* Extensions */,
 				BA88644C29253AF100709971 /* MVVM */,
 				BA8864432925068B00709971 /* CoreData */,
 				BA8864102924F94700709971 /* AppDelegate.swift */,
@@ -538,6 +549,7 @@
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */,
 				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
+				BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */,
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
 				BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,

@@ -16,6 +16,8 @@ class ChatMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
 
+    @IBOutlet weak var messageContainer: UIView!
+    
     private lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, d MMM HH:mm"
@@ -33,24 +35,32 @@ class ChatMessageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.leadingConstraint.constant = 0
-        self.trailingConstraint.constant = 0
+        self.leadingConstraint.constant = 8
+        self.trailingConstraint.constant = 8
         self.userNameLabel.text = nil
         self.timestampLabel.text = nil
         self.messageLabel.text = nil
+
+        self.messageContainer.backgroundColor = .clear
     }
 
     public func setup(with message: ChatMessageEntity) {
         switch message.type {
         case .incoming:
-            self.leadingConstraint.constant = 0
-            self.trailingConstraint.constant = 56
+            self.leadingConstraint.constant = 8
+            self.trailingConstraint.constant = 32
         case .outgoing:
-            self.leadingConstraint.constant = 56
-            self.trailingConstraint.constant = 0
+            self.leadingConstraint.constant = 32
+            self.trailingConstraint.constant = 8
         }
 
         self.userNameLabel.text = message.userName
@@ -60,6 +70,11 @@ class ChatMessageTableViewCell: UITableViewCell {
         } else {
             self.timestampLabel.text = ""
         }
+
+        self.messageContainer.backgroundColor =
+            message.type == .incoming ?
+            UIColor.white :
+            UIColor(red: 223, green: 253, blue: 212)
 
         self.layoutIfNeeded()
     }
