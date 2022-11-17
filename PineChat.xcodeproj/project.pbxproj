@@ -20,6 +20,7 @@
 		BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F165292662B5006425BF /* AppSettingsModel.swift */; };
 		BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */; };
 		BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16B29266421006425BF /* ConnectivityUtils.swift */; };
+		BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16D29266E4F006425BF /* ChatViewController.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
 		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 		BA33F165292662B5006425BF /* AppSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModel.swift; sourceTree = "<group>"; };
 		BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtilsProtocol.swift; sourceTree = "<group>"; };
 		BA33F16B29266421006425BF /* ConnectivityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtils.swift; sourceTree = "<group>"; };
+		BA33F16D29266E4F006425BF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				BA88645029253CC700709971 /* BaseViewController.swift */,
 				BA88645229253D0F00709971 /* ClientSettingsViewController.swift */,
 				BA88645429253D2500709971 /* MainViewController.swift */,
+				BA33F16D29266E4F006425BF /* ChatViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				BA33F15829265FC6006425BF /* AppModel.swift in Sources */,
 				BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */,
 				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
+				BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,

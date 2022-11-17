@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="2191" y="495"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="4YL-eg-mlV">
             <objects>
-                <viewController id="4Rt-M8-t8Z" sceneMemberID="viewController">
+                <viewController id="4Rt-M8-t8Z" customClass="ChatViewController" customModule="PineChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4a3-cr-Hrl">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                                 <rect key="frame" x="0.0" y="710" width="390" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wm-Wc-gsK">
-                                        <rect key="frame" x="326" y="16" width="48" height="48"/>
+                                        <rect key="frame" x="334" y="8" width="48" height="48"/>
                                         <color key="backgroundColor" red="0.46565526515529693" green="0.71136990202499972" blue="0.76871567964553833" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="Xvw-fq-tzx"/>
@@ -224,14 +224,21 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendTap:" destination="4Rt-M8-t8Z" eventType="touchUpInside" id="Fu2-Ab-LJE"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RaR-Xw-Yih">
-                                        <rect key="frame" x="8" y="8" width="310" height="84"/>
+                                        <rect key="frame" x="8" y="8" width="318" height="84"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,11 +247,15 @@
                                     <constraint firstAttribute="bottom" secondItem="RaR-Xw-Yih" secondAttribute="bottom" constant="8" id="E0p-hx-bDu"/>
                                     <constraint firstItem="RaR-Xw-Yih" firstAttribute="top" secondItem="9Nz-iv-D4X" secondAttribute="top" constant="8" id="PHL-it-t1v"/>
                                     <constraint firstAttribute="height" constant="100" id="PT5-Jm-VkK"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Wm-Wc-gsK" secondAttribute="trailing" constant="16" id="TbW-eW-PO0"/>
-                                    <constraint firstItem="3Wm-Wc-gsK" firstAttribute="top" secondItem="9Nz-iv-D4X" secondAttribute="top" constant="16" id="q8e-1Q-4qs"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Wm-Wc-gsK" secondAttribute="trailing" constant="8" id="TbW-eW-PO0"/>
+                                    <constraint firstItem="3Wm-Wc-gsK" firstAttribute="top" secondItem="9Nz-iv-D4X" secondAttribute="top" constant="8" id="q8e-1Q-4qs"/>
                                     <constraint firstItem="3Wm-Wc-gsK" firstAttribute="leading" secondItem="RaR-Xw-Yih" secondAttribute="trailing" constant="8" id="w59-s8-VLZ"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v29-xD-VCn">
+                                <rect key="frame" x="0.0" y="91" width="390" height="619"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uf2-zj-DDC"/>
                         <color key="backgroundColor" red="0.70039577264460662" green="0.76942896842956543" blue="0.68971618946854896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -252,9 +263,19 @@
                             <constraint firstItem="uf2-zj-DDC" firstAttribute="bottom" secondItem="9Nz-iv-D4X" secondAttribute="bottom" id="IdN-Qr-MHm"/>
                             <constraint firstItem="uf2-zj-DDC" firstAttribute="trailing" secondItem="9Nz-iv-D4X" secondAttribute="trailing" id="MF2-5B-1ez"/>
                             <constraint firstItem="9Nz-iv-D4X" firstAttribute="leading" secondItem="uf2-zj-DDC" secondAttribute="leading" id="X5S-2C-xen"/>
+                            <constraint firstItem="v29-xD-VCn" firstAttribute="top" secondItem="uf2-zj-DDC" secondAttribute="top" id="YZN-8H-Dlg"/>
+                            <constraint firstItem="9Nz-iv-D4X" firstAttribute="top" secondItem="v29-xD-VCn" secondAttribute="bottom" id="c2G-R6-gdb"/>
+                            <constraint firstItem="uf2-zj-DDC" firstAttribute="trailing" secondItem="v29-xD-VCn" secondAttribute="trailing" id="tPq-EQ-cEk"/>
+                            <constraint firstItem="v29-xD-VCn" firstAttribute="leading" secondItem="uf2-zj-DDC" secondAttribute="leading" id="uGf-ZG-LFu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MhP-1V-Ucj"/>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="IdN-Qr-MHm" id="DFb-A7-bi4"/>
+                        <outlet property="sendButton" destination="3Wm-Wc-gsK" id="Fzd-dt-KMo"/>
+                        <outlet property="tableView" destination="v29-xD-VCn" id="vEO-kk-Atv"/>
+                        <outlet property="textView" destination="RaR-Xw-Yih" id="R6u-Vg-XnP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gwa-Dx-4sh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
