@@ -33,7 +33,7 @@ class ClientSettingsViewModel: BaseViewModel, ClientSettingsViewModelProtocol {
     }
 
     func enterChatTap() {
-        
+        self.appModel.mode = .client
     }
 }
 
