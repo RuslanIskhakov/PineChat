@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */; };
 		9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */; };
+		BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15529265F75006425BF /* AppModelProtocol.swift */; };
+		BA33F15829265FC6006425BF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15729265FC6006425BF /* AppModel.swift */; };
+		BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */; };
+		BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15B29266042006425BF /* AppModelConfigurator.swift */; };
+		BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */; };
+		BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15F292660DE006425BF /* BaseViewModel.swift */; };
+		BA33F16229266121006425BF /* ClientSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16129266121006425BF /* ClientSettingsViewModel.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
 		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
@@ -49,6 +56,13 @@
 		06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.debug.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.debug.xcconfig"; sourceTree = "<group>"; };
 		B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA33F15529265F75006425BF /* AppModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F15729265FC6006425BF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelInitialisable.swift; sourceTree = "<group>"; };
+		BA33F15B29266042006425BF /* AppModelConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelConfigurator.swift; sourceTree = "<group>"; };
+		BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F15F292660DE006425BF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		BA33F16129266121006425BF /* ClientSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModel.swift; sourceTree = "<group>"; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +116,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA33F15329265F4A006425BF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */,
+				BA33F15F292660DE006425BF /* BaseViewModel.swift */,
+				BA33F16129266121006425BF /* ClientSettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BA33F15429265F51006425BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F15529265F75006425BF /* AppModelProtocol.swift */,
+				BA33F15729265FC6006425BF /* AppModel.swift */,
+				BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */,
+				BA33F15B29266042006425BF /* AppModelConfigurator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BA8864042924F94700709971 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +206,8 @@
 		BA88644C29253AF100709971 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				BA33F15429265F51006425BF /* Model */,
+				BA33F15329265F4A006425BF /* ViewModels */,
 				BA88644D29253AFA00709971 /* Views */,
 			);
 			path = MVVM;
@@ -425,14 +462,21 @@
 			files = (
 				BA8864152924F94700709971 /* ViewController.swift in Sources */,
 				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
+				BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */,
 				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
 				BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */,
 				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
+				BA33F16229266121006425BF /* ClientSettingsViewModel.swift in Sources */,
+				BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */,
 				BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */,
+				BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */,
+				BA33F15829265FC6006425BF /* AppModel.swift in Sources */,
 				BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */,
 				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
+				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
+				BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

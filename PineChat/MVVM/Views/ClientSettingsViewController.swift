@@ -9,8 +9,12 @@ import UIKit
 
 class ClientSettingsViewController: UIViewController {
 
+    private var viewModel: ClientSettingsViewModelProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel = ClientSettingsViewModel(with: AppDelegate.appModel)
 
         self.title = "Клиент"
     }
