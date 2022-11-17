@@ -9,6 +9,9 @@ import Foundation
 
 class AppModelConfigurator {
     static func configure() -> AppModelProtocol {
-        AppModel()
+        AppModel(
+            appSettingsModel: AppSettingsModel(),
+            connectivityUtils: ConnectivityUtils()
+        )
     }
 }

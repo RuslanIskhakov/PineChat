@@ -16,6 +16,10 @@
 		BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */; };
 		BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15F292660DE006425BF /* BaseViewModel.swift */; };
 		BA33F16229266121006425BF /* ClientSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16129266121006425BF /* ClientSettingsViewModel.swift */; };
+		BA33F164292662A6006425BF /* AppSettingsModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */; };
+		BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F165292662B5006425BF /* AppSettingsModel.swift */; };
+		BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */; };
+		BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16B29266421006425BF /* ConnectivityUtils.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
 		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
@@ -63,6 +67,10 @@
 		BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
 		BA33F15F292660DE006425BF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		BA33F16129266121006425BF /* ClientSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModel.swift; sourceTree = "<group>"; };
+		BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F165292662B5006425BF /* AppSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModel.swift; sourceTree = "<group>"; };
+		BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtilsProtocol.swift; sourceTree = "<group>"; };
+		BA33F16B29266421006425BF /* ConnectivityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtils.swift; sourceTree = "<group>"; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +127,8 @@
 		BA33F15329265F4A006425BF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */,
 				BA33F15F292660DE006425BF /* BaseViewModel.swift */,
+				BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */,
 				BA33F16129266121006425BF /* ClientSettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -133,8 +141,27 @@
 				BA33F15729265FC6006425BF /* AppModel.swift */,
 				BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */,
 				BA33F15B29266042006425BF /* AppModelConfigurator.swift */,
+				BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */,
+				BA33F165292662B5006425BF /* AppSettingsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA33F167292663E8006425BF /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F168292663F2006425BF /* Connectivity */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
+		BA33F168292663F2006425BF /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */,
+				BA33F16B29266421006425BF /* ConnectivityUtils.swift */,
+			);
+			path = Connectivity;
 			sourceTree = "<group>";
 		};
 		BA8864042924F94700709971 = {
@@ -206,6 +233,7 @@
 		BA88644C29253AF100709971 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				BA33F167292663E8006425BF /* IO */,
 				BA33F15429265F51006425BF /* Model */,
 				BA33F15329265F4A006425BF /* ViewModels */,
 				BA88644D29253AFA00709971 /* Views */,
@@ -462,7 +490,10 @@
 			files = (
 				BA8864152924F94700709971 /* ViewController.swift in Sources */,
 				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
+				BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */,
 				BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */,
+				BA33F164292662A6006425BF /* AppSettingsModelProtocol.swift in Sources */,
+				BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */,
 				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
 				BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */,
 				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
@@ -478,6 +509,7 @@
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
 				BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
+				BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

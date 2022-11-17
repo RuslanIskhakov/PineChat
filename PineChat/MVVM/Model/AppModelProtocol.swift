@@ -14,4 +14,6 @@ enum AppMode {
 
 protocol AppModelProtocol: AnyObject {
     var mode: AppMode? {get set}
+    var appSettingsModel: AppSettingsModelProtocol {get}
+    var connectivityUtils: ConnectivityUtilsProtocol {get}
 }
