@@ -12,6 +12,11 @@ enum AppMode {
     case client
 }
 
+enum ChatMessageType {
+    case incoming
+    case outgoing
+}
+
 protocol AppModelProtocol: AnyObject {
     var mode: AppMode? {get set}
     var appSettingsModel: AppSettingsModelProtocol {get}
