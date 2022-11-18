@@ -13,6 +13,7 @@ class AppSettingsModel: BaseModelInitialisable, AppSettingsModelProtocol {
 
     private let serverIPAddressKey = "serveripaddress"
     private let portNumberKey = "portnumber"
+    private let usernameKey = "username"
 
     weak var appModel: AppModelProtocol?
     
@@ -31,6 +32,15 @@ class AppSettingsModel: BaseModelInitialisable, AppSettingsModelProtocol {
         }
         get {
             return self.defaults.string(forKey: self.portNumberKey) ?? "8080"
+        }
+    }
+
+    var username: String {
+        set {
+            self.defaults.set(newValue, forKey: self.usernameKey)
+        }
+        get {
+            return self.defaults.string(forKey: self.usernameKey) ?? ""
         }
     }
 

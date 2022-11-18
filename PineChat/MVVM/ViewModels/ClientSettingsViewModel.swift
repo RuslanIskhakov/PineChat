@@ -11,6 +11,7 @@ class ClientSettingsViewModel: BaseViewModel, ClientSettingsViewModelProtocol {
 
     private let appModel: AppModelProtocol
 
+    let usernameText = BehaviorRelay<String>(value: "")
     let ipAddressText = BehaviorRelay<String>(value: "")
     let portNumberText = BehaviorRelay<String>(value: "")
 
@@ -20,6 +21,12 @@ class ClientSettingsViewModel: BaseViewModel, ClientSettingsViewModelProtocol {
 
     func configureView() {
         self.refreshIPAddress()
+        self.refreshUsername()
+    }
+
+    func setUsername(_ username: String) {
+        var settings = self.appModel.appSettingsModel
+        settings.username = username
     }
 
     func setServerIPAddress(_ ipAddress: String) {
@@ -53,5 +60,10 @@ private extension ClientSettingsViewModel {
         }
 
         self.portNumberText.accept(self.appModel.appSettingsModel.portNumber)
+    }
+
+    func refreshUsername() {
+        let username = self.appModel.appSettingsModel.username
+        self.usernameText.accept(username)
     }
 }
