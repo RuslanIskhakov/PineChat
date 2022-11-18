@@ -12,6 +12,7 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
 
     private var client: WebSocketClient?
     private let messagesCoder = SocketMessageCoder()
+    private let queue = DispatchQueue(label: "ClientModel", qos: .utility)
 
     override init() {
         super.init()
@@ -62,6 +63,21 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
         self.disposeBag = DisposeBag()
         self.client?.closeSocket()
         self.client = nil
+    }
+
+    func postChatMessage(_ text: String) {
+        self.queue.async {[unowned self] in
+            guard
+                let username = self.appModel?.appSettingsModel.username,
+                let data = self.messagesCoder.encodeMessage(
+                    PostNewChatMessage(
+                        userName: username,
+                        message: text
+                    ))
+            else { return }
+
+            self.client?.send(data)
+        }
     }
 }
 

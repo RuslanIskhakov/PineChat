@@ -50,7 +50,10 @@ class ChatViewController: BaseViewController {
     }
 
     @IBAction func sendTap(_ sender: Any) {
-        if let message = self.textView.text {
+        if
+            let message = self.textView.text,
+            !message.isEmpty
+        {
             self.viewModel?.postMessage(message)
             self.textView.text = nil
             self.dismissKeyboard()
@@ -65,7 +68,6 @@ class ChatViewController: BaseViewController {
             .subscribe(onNext: {[weak self] _ in
                 guard let self else { return }
                 self.tableView.reloadData()
-                self.tableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false)
             }).disposed(by: self.disposeBag)
 
         self.viewModel?.viewState

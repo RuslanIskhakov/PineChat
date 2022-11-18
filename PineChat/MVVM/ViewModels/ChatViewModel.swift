@@ -33,6 +33,28 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
             self.appModel.clientModel.startClient()
         }
 
+        //self.fillWithDummyMessages()
+
+        self.updateEvents.accept(())
+    }
+
+    func postMessage(_ text: String) {
+        self.appModel.clientModel.postChatMessage(text)
+    }
+
+    func stopChat() {
+        if self.chatMode == .server {
+            self.appModel.serverModel.stopServer()
+            self.viewState.accept(.dismiss)
+        } else {
+            self.appModel.clientModel.stopClient()
+            self.viewState.accept(.dismiss)
+        }
+    }
+}
+
+private extension ChatViewModel {
+    func fillWithDummyMessages() {
         self.messages.append(
             ChatMessageEntity(
                 id: "",
@@ -140,32 +162,5 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
                 text: "Lorem ipsum dolor sit amet",
                 type: .outgoing)
         )
-
-        self.updateEvents.accept(())
-    }
-
-    func postMessage(_ text: String) {
-        self.messages.insert(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "R I",
-                text: text,
-                type: .outgoing
-            ),
-            at: 0
-        )
-
-        self.viewState.accept(.loading)
-    }
-
-    func stopChat() {
-        if self.chatMode == .server {
-            self.appModel.serverModel.stopServer()
-            self.viewState.accept(.dismiss)
-        } else {
-            self.appModel.clientModel.stopClient()
-            self.viewState.accept(.dismiss)
-        }
     }
 }

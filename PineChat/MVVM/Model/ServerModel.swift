@@ -59,6 +59,12 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
 }
 
 extension ServerModel: WebSocketServerDelegate {
+    func dataReceived(_ data: Data) -> Data? {
+        let message = self.messagesCoder.decodeClientMessage(from: data)
+        print("Message received: \(message)")
+        return nil
+    }
+
     func newClientConnectionEstablished() -> Data? {
         self.messagesCoder.encodeMessage(
             NewChatMessagesAvailable(

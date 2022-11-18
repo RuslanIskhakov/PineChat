@@ -22,6 +22,7 @@ enum WebSocketServerStateEvents {
 
 protocol WebSocketServerDelegate: AnyObject {
     func newClientConnectionEstablished() -> Data?
+    func dataReceived(_ data: Data) -> Data?
 }
 
 class WebSocketServer: BaseIOInitialisable {
@@ -67,11 +68,14 @@ class WebSocketServer: BaseIOInitialisable {
             self.stateEvents.accept(.event("New connection"))
 
             func receive() {
-                newConnection.receiveMessage { (data, context, isComplete, error) in
+                newConnection.receiveMessage {[unowned self] (data, context, isComplete, error) in
                     guard let data = data, let context = context else { return }
 
-
-                    receive()
+                    print("WebSocketServer: received data of \(data.count)")
+                    self.handleReceived(data, for: newConnection)
+                    self.serverQueue.asyncAfter(deadline: .now() + .microseconds(1000)) {
+                        receive()
+                    }
                 }
             }
             receive()
@@ -106,6 +110,14 @@ class WebSocketServer: BaseIOInitialisable {
         }
 
         listener?.start(queue: serverQueue)
+    }
+
+    private func handleReceived(_ data: Data, for connection: NWConnection) {
+        guard
+            let responseData = self.delegate?.dataReceived(data)
+        else { return }
+
+        try? self.sendMessageToClient(data: responseData, client: connection)
     }
 
     private func sendGreetingsMessageTo(_ newConnection: NWConnection) {

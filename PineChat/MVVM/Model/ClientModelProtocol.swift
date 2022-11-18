@@ -11,4 +11,5 @@ protocol ClientModelProtocol {
     var appModel: AppModelProtocol? {get set}
     func startClient()
     func stopClient()
+    func postChatMessage(_ text: String)
 }

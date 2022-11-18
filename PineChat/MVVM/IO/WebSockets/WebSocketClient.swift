@@ -76,6 +76,19 @@ final class WebSocketClient: NSObject {
         }
     }
 
+    func send(_ data: Data) {
+        self.queue.async {[unowned self] in
+            guard let webSocket = self.webSocket else {
+                return
+            }
+            webSocket.send(URLSessionWebSocketTask.Message.data(data)) {error in
+                if let error = error {
+                    print("send data error: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+
     private func openWebSocket() {
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
