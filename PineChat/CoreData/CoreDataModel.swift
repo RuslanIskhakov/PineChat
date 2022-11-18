@@ -8,9 +8,11 @@
 import Foundation
 import CoreData
 
-class CoreDataModel {
+class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
 
-    var persistentContainer: NSPersistentContainer = {
+    weak var appModel: AppModelProtocol?
+
+    private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PineChat")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
         if let error = error as NSError? {
@@ -20,12 +22,12 @@ class CoreDataModel {
         return container
     }()
 
-    lazy var context: NSManagedObjectContext = {
+    private lazy var context: NSManagedObjectContext = {
         return persistentContainer.newBackgroundContext()
     }()
 
-    init() {
-
+    func getLastMessageId() -> String {
+        ""
     }
 
     func putMessage(from: String, text: String, id: String) {
@@ -51,8 +53,8 @@ class CoreDataModel {
         }
     }
 
-    func getAllMessages() -> [PersistantMessage] {
-        var result = [PersistantMessage]()
+    func getAllMessages() -> [PersistantChatMessage] {
+        var result = [PersistantChatMessage]()
 
         self.context.performAndWait{
             let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
@@ -63,8 +65,8 @@ class CoreDataModel {
         return result
     }
 
-    func getAllMessagesSortedById() -> [PersistantMessage] {
-        var result = [PersistantMessage]()
+    func getAllMessagesSortedById() -> [PersistantChatMessage] {
+        var result = [PersistantChatMessage]()
 
         self.context.performAndWait{
             let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
@@ -77,9 +79,9 @@ class CoreDataModel {
         return result
     }
 
-    func getAllMessagesSortedByDate(limit: Int? = nil) -> [PersistantMessage]{
+    func getAllMessagesSortedByDate(limit: Int? = nil) -> [PersistantChatMessage]{
 
-        var result = [PersistantMessage]()
+        var result = [PersistantChatMessage]()
 
         self.context.performAndWait{
             let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()

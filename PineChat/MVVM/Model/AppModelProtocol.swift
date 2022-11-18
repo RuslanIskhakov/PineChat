@@ -19,6 +19,7 @@ enum ChatMessageType {
 
 protocol AppModelProtocol: AnyObject {
     var mode: AppMode? {get set}
+    var coreDataModel: CoreDataModelProtocol {get}
     var appSettingsModel: AppSettingsModelProtocol {get}
     var connectivityUtils: ConnectivityUtilsProtocol {get}
     var serverModel: ServerModelProtocol {get}

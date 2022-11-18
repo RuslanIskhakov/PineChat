@@ -13,9 +13,11 @@ class AppModel: BaseModelInitialisable, AppModelProtocol {
     var appSettingsModel: AppSettingsModelProtocol
     var connectivityUtils: ConnectivityUtilsProtocol
     var serverModel: ServerModelProtocol
-    var clientModel: ClientModelProtocol 
+    var clientModel: ClientModelProtocol
+    var coreDataModel: CoreDataModelProtocol
 
     init(
+        coreDataModel: CoreDataModelProtocol,
         appSettingsModel: AppSettingsModelProtocol,
         connectivityUtils: ConnectivityUtilsProtocol,
         serverModel: ServerModelProtocol,
@@ -25,6 +27,7 @@ class AppModel: BaseModelInitialisable, AppModelProtocol {
         self.connectivityUtils = connectivityUtils
         self.serverModel = serverModel
         self.clientModel = clientModel
+        self.coreDataModel = coreDataModel
 
         super.init()
 
@@ -32,5 +35,6 @@ class AppModel: BaseModelInitialisable, AppModelProtocol {
         self.connectivityUtils.appModel = self
         self.serverModel.appModel = self
         self.clientModel.appModel = self
+        self.coreDataModel.appModel = self
     }
 }

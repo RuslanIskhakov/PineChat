@@ -16,6 +16,10 @@ enum WebSocketClientStateEvents {
     case event(String)
 }
 
+protocol WebSocketClientDelegate: AnyObject {
+    func messageReceived(_ data: Data)
+}
+
 final class WebSocketClient: NSObject {
 
     private let queue = DispatchQueue(label: "WebSocketClient", qos: .utility)
@@ -27,8 +31,9 @@ final class WebSocketClient: NSObject {
     private var urlString = ""
 
     let stateEvents = BehaviorRelay<WebSocketClientStateEvents>(value: .initial)
-    let connectionEvents = PublishRelay<MessageType>()
     let serverLocation = PublishRelay<LocationBody>()
+
+    weak var delegate: WebSocketClientDelegate?
 
     init(ipAddress: String, port: String) {
         self.urlString = "ws://\(ipAddress):\(port)"
@@ -60,21 +65,8 @@ final class WebSocketClient: NSObject {
                     case .string:
                         self.stateEvents.accept(.event("string webSocketTaskMessage"))
                     case .data(let data):
-                        if let messageType = self.getMessageType(from: data) {
-                            switch(messageType) {
-                            case .connected:
-                                self.stateEvents.accept(.event("dstest Connected"))
-                                if let location = try? JSONDecoder().decode(ConnectionAck.self, from: data).lastLocation {
-                                    self.serverLocation.accept(location)
-                                }
-
-                                self.connectionEvents.accept(.connected)
-                            case .locationAck:
-                                self.stateEvents.accept(.event("dstest location ack"))
-                                self.connectionEvents.accept(.locationAck)
-                            }
-                        }
-
+                        self.stateEvents.accept(.event("data of \(data.count) bytes length received"))
+                        self.delegate?.messageReceived(data)
                         self.subscribeToService()
                     default:
                         fatalError("Failed. Received unknown data format. Expected String")
@@ -82,29 +74,6 @@ final class WebSocketClient: NSObject {
                 }
             })
         }
-    }
-
-    func sendLocation(_ location: LocationBody) {
-        self.queue.async {[unowned self] in
-            guard let webSocket = self.webSocket else {
-                return
-            }
-            print("dstest sending location: \(location)")
-            if let data = try? JSONEncoder().encode(location) {
-                webSocket.send(URLSessionWebSocketTask.Message.data(data)) {error in
-                    if let error = error {
-                        print("dstest sendLocation error: \(error.localizedDescription)")
-                    }
-                }
-            }
-        }
-    }
-
-    private func getMessageType(from jsonData: Data) -> MessageType? {
-        if let messageType = (try? JSONDecoder().decode(ConnectionAck.self, from: jsonData))?.t {
-            return MessageType(rawValue: messageType)
-        }
-        return nil
     }
 
     private func openWebSocket() {

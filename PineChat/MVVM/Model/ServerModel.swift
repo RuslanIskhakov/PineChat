@@ -11,6 +11,13 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
     weak var appModel: AppModelProtocol?
 
     private var server: WebSocketServer?
+    private let messagesCoder = SocketMessageCoder()
+
+    override init() {
+        super.init()
+
+        self.messagesCoder.serverSideDelegate = self
+    }
 
     func startServer() {
         print("SocketServerModel.startServer()")
@@ -39,6 +46,7 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
             })
             .disposed(by: self.disposeBag)
 
+        server.delegate = self
         server.startServer()
         self.server = server
     }
@@ -47,5 +55,25 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
         print("SocketServerModel.stopServer()")
         self.disposeBag = DisposeBag()
         self.server?.stopServer()
+    }
+}
+
+extension ServerModel: WebSocketServerDelegate {
+    func newClientConnectionEstablished() -> Data? {
+        self.messagesCoder.encodeMessage(
+            NewChatMessagesAvailable(
+                lastMessageId: ""
+            )
+        )
+    }
+}
+
+extension ServerModel: SocketMessageParserServerSideDelegate {
+    func chatMessagesRequested(_ message: ChatMessagesRequest) {
+
+    }
+
+    func chatMessagesPosted(_ message: PostNewChatMessage) {
+
     }
 }

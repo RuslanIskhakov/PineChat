@@ -53,6 +53,8 @@
 		BA9A91762927833900B806AA /* ClientModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91752927833900B806AA /* ClientModelProtocol.swift */; };
 		BA9A91782927835700B806AA /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91772927835700B806AA /* ClientModel.swift */; };
 		BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9179292783EB00B806AA /* WebSocketClient.swift */; };
+		BA9A917C292796BE00B806AA /* SocketMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A917B292796BE00B806AA /* SocketMessages.swift */; };
+		BA9A917E2927B06700B806AA /* CoreDataModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		BA9A91752927833900B806AA /* ClientModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModelProtocol.swift; sourceTree = "<group>"; };
 		BA9A91772927835700B806AA /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		BA9A9179292783EB00B806AA /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		BA9A917B292796BE00B806AA /* SocketMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMessages.swift; sourceTree = "<group>"; };
+		BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModelProtocol.swift; sourceTree = "<group>"; };
 		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
 		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				BA7D4744292675EA002E340B /* ChatMessageEntity.swift */,
+				BA9A917B292796BE00B806AA /* SocketMessages.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */,
 				BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */,
 				BA88644A29250AE900709971 /* CoreDataModel.swift */,
+				BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */,
 				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
 				BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */,
+				BA9A917E2927B06700B806AA /* CoreDataModelProtocol.swift in Sources */,
 				BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */,
 				BA33F164292662A6006425BF /* AppSettingsModelProtocol.swift in Sources */,
 				BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */,
@@ -589,6 +596,7 @@
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */,
 				BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */,
+				BA9A917C292796BE00B806AA /* SocketMessages.swift in Sources */,
 				BA9A91742927772700B806AA /* BaseIOinitialisable.swift in Sources */,
 				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
 				BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */,

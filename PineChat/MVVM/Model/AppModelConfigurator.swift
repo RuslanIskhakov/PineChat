@@ -10,6 +10,7 @@ import Foundation
 class AppModelConfigurator {
     static func configure() -> AppModelProtocol {
         AppModel(
+            coreDataModel: CoreDataModel(),
             appSettingsModel: AppSettingsModel(),
             connectivityUtils: ConnectivityUtils(),
             serverModel: ServerModel(),

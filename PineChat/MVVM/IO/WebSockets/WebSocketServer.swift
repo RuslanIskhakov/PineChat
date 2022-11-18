@@ -20,6 +20,10 @@ enum WebSocketServerStateEvents {
     case event(String)
 }
 
+protocol WebSocketServerDelegate: AnyObject {
+    func newClientConnectionEstablished() -> Data?
+}
+
 class WebSocketServer: BaseIOInitialisable {
     private var listener: NWListener?
     private var connectedClients: [NWConnection] = []
@@ -27,6 +31,8 @@ class WebSocketServer: BaseIOInitialisable {
 
     let lastLocation = BehaviorRelay<LocationBody?>(value: nil)
     let stateEvents = BehaviorRelay<WebSocketServerStateEvents>(value: .initial)
+
+    weak var delegate: WebSocketServerDelegate?
 
     required init(port: UInt16) {
 
@@ -50,19 +56,22 @@ class WebSocketServer: BaseIOInitialisable {
         }
     }
 
+
     func startServer() {
 
         listener?.newConnectionHandler = { [weak self ]newConnection in
             guard let self else { return }
 
-            self.stateEvents.accept(.event("New connection connecting"))
+            self.connectedClients.append(newConnection)
+
+            self.stateEvents.accept(.event("New connection"))
 
             func receive() {
                 newConnection.receiveMessage { (data, context, isComplete, error) in
-                    if let data = data, let context = context {
-                        let someMessage = try? self.handleMessageFromClient(data: data, context: context, connection: newConnection)
-                        receive()
-                    }
+                    guard let data = data, let context = context else { return }
+
+
+                    receive()
                 }
             }
             receive()
@@ -71,7 +80,7 @@ class WebSocketServer: BaseIOInitialisable {
                 switch state {
                 case .ready:
                     self.stateEvents.accept(.event("Client ready"))
-                    self.sendConnectionAckToClient(connection: newConnection)
+                    self.sendGreetingsMessageTo(newConnection)
                 case .failed(let error):
                     self.stateEvents.accept(.error(error))
                 case .waiting(let error):
@@ -99,8 +108,12 @@ class WebSocketServer: BaseIOInitialisable {
         listener?.start(queue: serverQueue)
     }
 
-    func stopServer() {
-        listener?.cancel()
+    private func sendGreetingsMessageTo(_ newConnection: NWConnection) {
+        guard
+            let data = self.delegate?.newClientConnectionEstablished()
+        else { return }
+
+        try? self.sendMessageToClient(data: data, client: newConnection)
     }
 
     private func sendMessageToClient(data: Data, client: NWConnection) throws {
@@ -111,56 +124,15 @@ class WebSocketServer: BaseIOInitialisable {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                // no-op
+
             }
         }))
     }
 
-    private func handleMessageFromClient(data: Data, context: NWConnection.ContentContext, connection: NWConnection) throws -> Bool {
-
-        if let location = try? JSONDecoder().decode(LocationBody.self, from: data) {
-            self.sendLocationAckToClient(connection: connection)
-            return true
-        }
-
-        return false
-    }
-
-    private func sendConnectionAckToClient(connection: NWConnection) {
-
-        let model = ConnectionAck(
-            t: MessageType.connected.rawValue,
-            lastLocation: self.lastLocation.value
-        )
-        let data = try! JSONEncoder().encode(model)
-
-        try! self.sendMessageToClient(data: data, client: connection)
-    }
-
-    private func sendLocationAckToClient(connection: NWConnection) {
-
-        let model = ConnectionAck(
-            t: MessageType.locationAck.rawValue,
-            lastLocation: self.lastLocation.value
-        )
-        let data = try! JSONEncoder().encode(model)
-
-        try! self.sendMessageToClient(data: data, client: connection)
+    func stopServer() {
+        listener?.cancel()
+        listener = nil
     }
 }
 
-struct LocationBody: Codable {
-    let latitude: Double
-    let longitude: Double
-}
-
-struct ConnectionAck: Codable {
-    let t: String
-    let lastLocation: LocationBody?
-}
-
-enum MessageType: String {
-    case connected = "connect.connected"
-    case locationAck = "location.ack"
-}
 
