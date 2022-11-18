@@ -22,4 +22,5 @@ protocol AppModelProtocol: AnyObject {
     var appSettingsModel: AppSettingsModelProtocol {get}
     var connectivityUtils: ConnectivityUtilsProtocol {get}
     var serverModel: ServerModelProtocol {get}
+    var clientModel: ClientModelProtocol {get}
 }

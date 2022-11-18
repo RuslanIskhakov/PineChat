@@ -170,7 +170,7 @@ private extension ChatViewController {
 
 extension ChatViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        let rightButton = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down"), style: .done, target: self, action: #selector(dismissKeyboard))
+        let rightButton = UIBarButtonItem(image: UIImage(named: "backIcon")?.withTintColor(self.view.tintColor), style: .done, target: self, action: #selector(dismissKeyboard))
         navigationItem.rightBarButtonItem = rightButton
     }
 

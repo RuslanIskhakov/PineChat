@@ -12,7 +12,8 @@ class AppModelConfigurator {
         AppModel(
             appSettingsModel: AppSettingsModel(),
             connectivityUtils: ConnectivityUtils(),
-            serverModel: ServerModel()
+            serverModel: ServerModel(),
+            clientModel: ClientModel()
         )
     }
 }

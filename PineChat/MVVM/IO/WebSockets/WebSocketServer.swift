@@ -12,12 +12,21 @@ import Network
 import RxSwift
 import RxRelay
 
+enum WebSocketServerStateEvents {
+    case initial
+    case errorMessage(String)
+    case error(Error)
+    case opened(String)
+    case event(String)
+}
+
 class WebSocketServer: BaseIOInitialisable {
-    private var listener: NWListener
+    private var listener: NWListener?
     private var connectedClients: [NWConnection] = []
     private let serverQueue = DispatchQueue(label: "ServerQueue")
 
     let lastLocation = BehaviorRelay<LocationBody?>(value: nil)
+    let stateEvents = BehaviorRelay<WebSocketServerStateEvents>(value: .initial)
 
     required init(port: UInt16) {
 
@@ -34,19 +43,19 @@ class WebSocketServer: BaseIOInitialisable {
             if let port = NWEndpoint.Port(rawValue: port) {
                 listener = try NWListener(using: parameters, on: port)
             } else {
-                fatalError("Unable to start WebSocket server on port \(port)")
+                self.stateEvents.accept(.errorMessage("Unable to start WebSocket server on port \(port)"))
             }
         } catch {
-            fatalError(error.localizedDescription)
+            self.stateEvents.accept(.error(error))
         }
     }
 
     func startServer() {
 
-        listener.newConnectionHandler = { [weak self ]newConnection in
+        listener?.newConnectionHandler = { [weak self ]newConnection in
             guard let self else { return }
 
-            print("New connection connecting")
+            self.stateEvents.accept(.event("New connection connecting"))
 
             func receive() {
                 newConnection.receiveMessage { (data, context, isComplete, error) in
@@ -61,12 +70,12 @@ class WebSocketServer: BaseIOInitialisable {
             newConnection.stateUpdateHandler = { state in
                 switch state {
                 case .ready:
-                    print("Client ready")
+                    self.stateEvents.accept(.event("Client ready"))
                     self.sendConnectionAckToClient(connection: newConnection)
                 case .failed(let error):
-                    print("Client connection failed \(error.localizedDescription)")
+                    self.stateEvents.accept(.error(error))
                 case .waiting(let error):
-                    print("Waiting for long time \(error.localizedDescription)")
+                    self.stateEvents.accept(.error(error))
                 default:
                     break
                 }
@@ -75,23 +84,23 @@ class WebSocketServer: BaseIOInitialisable {
             newConnection.start(queue: self.serverQueue)
         }
 
-        listener.stateUpdateHandler = { state in
+        listener?.stateUpdateHandler = { state in
             print(state)
             switch state {
             case .ready:
-                print("Server Ready")
+                self.stateEvents.accept(.opened("Server Ready"))
             case .failed(let error):
-                print("Server failed with \(error.localizedDescription)")
+                self.stateEvents.accept(.error(error))
             default:
                 break
             }
         }
 
-        listener.start(queue: serverQueue)
+        listener?.start(queue: serverQueue)
     }
 
     func stopServer() {
-        listener.cancel()
+        listener?.cancel()
     }
 
     private func sendMessageToClient(data: Data, client: NWConnection) throws {
@@ -110,12 +119,10 @@ class WebSocketServer: BaseIOInitialisable {
     private func handleMessageFromClient(data: Data, context: NWConnection.ContentContext, connection: NWConnection) throws -> Bool {
 
         if let location = try? JSONDecoder().decode(LocationBody.self, from: data) {
-            print("dstest received location: \(location)")
             self.sendLocationAckToClient(connection: connection)
             return true
         }
 
-        print("Invalid value from client")
         return false
     }
 

@@ -50,6 +50,9 @@
 		BA9A916F29276DEB00B806AA /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A916E29276DEB00B806AA /* ServerModel.swift */; };
 		BA9A9172292776FE00B806AA /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9171292776FE00B806AA /* WebSocketServer.swift */; };
 		BA9A91742927772700B806AA /* BaseIOinitialisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91732927772700B806AA /* BaseIOinitialisable.swift */; };
+		BA9A91762927833900B806AA /* ClientModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91752927833900B806AA /* ClientModelProtocol.swift */; };
+		BA9A91782927835700B806AA /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91772927835700B806AA /* ClientModel.swift */; };
+		BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9179292783EB00B806AA /* WebSocketClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,9 @@
 		BA9A916E29276DEB00B806AA /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
 		BA9A9171292776FE00B806AA /* WebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServer.swift; sourceTree = "<group>"; };
 		BA9A91732927772700B806AA /* BaseIOinitialisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseIOinitialisable.swift; sourceTree = "<group>"; };
+		BA9A91752927833900B806AA /* ClientModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A91772927835700B806AA /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
+		BA9A9179292783EB00B806AA /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
 		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 				BA33F165292662B5006425BF /* AppSettingsModel.swift */,
 				BA9A916C29276DD200B806AA /* ServerModelProtocol.swift */,
 				BA9A916E29276DEB00B806AA /* ServerModel.swift */,
+				BA9A91752927833900B806AA /* ClientModelProtocol.swift */,
+				BA9A91772927835700B806AA /* ClientModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				BA9A9171292776FE00B806AA /* WebSocketServer.swift */,
+				BA9A9179292783EB00B806AA /* WebSocketClient.swift */,
 			);
 			path = WebSockets;
 			sourceTree = "<group>";
@@ -568,12 +577,15 @@
 				BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */,
 				BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */,
 				BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */,
+				BA9A91782927835700B806AA /* ClientModel.swift in Sources */,
+				BA9A91762927833900B806AA /* ClientModelProtocol.swift in Sources */,
 				BA33F15829265FC6006425BF /* AppModel.swift in Sources */,
 				BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */,
 				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
 				BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */,
 				BA7D47412926734F002E340B /* ChatMessageTableViewCell.swift in Sources */,
 				BA9A916F29276DEB00B806AA /* ServerModel.swift in Sources */,
+				BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */,
 				BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */,

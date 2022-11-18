@@ -30,7 +30,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
         if self.appModel.mode == .server {
             self.appModel.serverModel.startServer()
         } else {
-
+            self.appModel.clientModel.startClient()
         }
 
         self.messages.append(
@@ -164,6 +164,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
             self.appModel.serverModel.stopServer()
             self.viewState.accept(.dismiss)
         } else {
+            self.appModel.clientModel.stopClient()
             self.viewState.accept(.dismiss)
         }
     }
