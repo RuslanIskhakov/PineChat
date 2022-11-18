@@ -44,6 +44,8 @@
 		BA88645129253CC700709971 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645029253CC700709971 /* BaseViewController.swift */; };
 		BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645229253D0F00709971 /* ClientSettingsViewController.swift */; };
 		BA88645529253D2500709971 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645429253D2500709971 /* MainViewController.swift */; };
+		BA9A9169292766EC00B806AA /* ServerSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */; };
+		BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		BA88645029253CC700709971 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BA88645229253D0F00709971 /* ClientSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewController.swift; sourceTree = "<group>"; };
 		BA88645429253D2500709971 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewModel.swift; sourceTree = "<group>"; };
 		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
 		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				BA33F16129266121006425BF /* ClientSettingsViewModel.swift */,
 				BA7D474629267928002E340B /* ChatViewModelProtocol.swift */,
 				BA7D474829267957002E340B /* ChatViewModel.swift */,
+				BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */,
+				BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -548,12 +554,14 @@
 				BA7D47412926734F002E340B /* ChatMessageTableViewCell.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
 				BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */,
+				BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */,
 				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
 				BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */,
 				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
 				BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
 				BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */,
+				BA9A9169292766EC00B806AA /* ServerSettingsViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
