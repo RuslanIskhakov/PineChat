@@ -18,7 +18,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     let viewState = BehaviorRelay<ChatViewStateEvent>(value: .idle)
 
-    var hideSendMessageUI = false
+    var chatMode: AppMode = .client
 
     let updateEvents = PublishRelay<Void>()
 
@@ -26,7 +26,12 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     func configureView() {
 
-        if self.appModel.mode == .server {self.hideSendMessageUI = true}
+        self.chatMode = self.appModel.mode ?? .client
+        if self.appModel.mode == .server {
+            self.appModel.serverModel.startServer()
+        } else {
+
+        }
 
         self.messages.append(
             ChatMessageEntity(
@@ -152,5 +157,14 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
         )
 
         self.viewState.accept(.loading)
+    }
+
+    func stopChat() {
+        if self.chatMode == .server {
+            self.appModel.serverModel.stopServer()
+            self.viewState.accept(.dismiss)
+        } else {
+            self.viewState.accept(.dismiss)
+        }
     }
 }

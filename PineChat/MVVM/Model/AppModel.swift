@@ -12,17 +12,21 @@ class AppModel: BaseModelInitialisable, AppModelProtocol {
 
     var appSettingsModel: AppSettingsModelProtocol
     var connectivityUtils: ConnectivityUtilsProtocol
+    var serverModel: ServerModelProtocol
 
     init(
         appSettingsModel: AppSettingsModelProtocol,
-        connectivityUtils: ConnectivityUtilsProtocol
+        connectivityUtils: ConnectivityUtilsProtocol,
+        serverModel: ServerModelProtocol
     ) {
         self.appSettingsModel = appSettingsModel
         self.connectivityUtils = connectivityUtils
+        self.serverModel = serverModel
 
         super.init()
 
         self.appSettingsModel.appModel = self
         self.connectivityUtils.appModel = self
+        self.serverModel.appModel = self
     }
 }

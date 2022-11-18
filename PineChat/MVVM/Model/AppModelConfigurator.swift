@@ -11,7 +11,8 @@ class AppModelConfigurator {
     static func configure() -> AppModelProtocol {
         AppModel(
             appSettingsModel: AppSettingsModel(),
-            connectivityUtils: ConnectivityUtils()
+            connectivityUtils: ConnectivityUtils(),
+            serverModel: ServerModel()
         )
     }
 }

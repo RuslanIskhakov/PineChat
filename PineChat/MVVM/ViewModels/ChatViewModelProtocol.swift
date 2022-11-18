@@ -12,6 +12,7 @@ enum ChatViewStateEvent {
     case idle
     case loading
     case error(String)
+    case dismiss
 }
 
 protocol ChatViewModelProtocol: AnyObject {
@@ -19,13 +20,13 @@ protocol ChatViewModelProtocol: AnyObject {
 
     var viewState: BehaviorRelay<ChatViewStateEvent> {get}
 
-    var hideSendMessageUI: Bool {get}
+    var chatMode: AppMode {get}
 
     var updateEvents: PublishRelay<Void> {get}
 
     var messages: [ChatMessageEntity] {get}
 
     func configureView()
-
     func postMessage(_ text: String)
+    func stopChat()
 }

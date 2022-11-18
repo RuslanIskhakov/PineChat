@@ -29,31 +29,9 @@ class ChatViewController: BaseViewController {
 
         self.viewModel?.configureView()
 
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(adjustForKeyboard),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(adjustForKeyboard),
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil)
+        self.setupUI()
 
-        self.textView.delegate = self
-
-        self.tableView.register(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "chatMessage")
-        self.tableView.allowsSelection = false
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 44
-        self.tableView.contentInsetAdjustmentBehavior = .never
-
-        if self.viewModel?.hideSendMessageUI == true {
-            self.bottomConstraint.constant = -self.sendMessageContainerView.frame.height
-        }
+        self.addCustomBackButton()
 
     }
 
@@ -95,10 +73,12 @@ class ChatViewController: BaseViewController {
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: {[weak self] event in
                 guard let self else { return }
-                guard case .loading = event else { return }
-                self.tableView.performBatchUpdates({
-                    self.tableView.insertRows(at: [IndexPath(row: 0,section: 0)], with: .automatic)
-                }, completion: nil)
+                switch event {
+                case .dismiss:
+                    self.navigationController?.popViewController(animated: true)
+                default:
+                    break
+                }
             }).disposed(by: self.disposeBag)
     }
 }
@@ -115,11 +95,76 @@ private extension ChatViewController {
         } else {
             self.bottomConstraint.constant = keyboardViewEndFrame.height - view.safeAreaInsets.bottom
         }
+    }
 
-//        script.scrollIndicatorInsets = script.contentInset
-//
-//        let selectedRange = script.selectedRange
-//        script.scrollRangeToVisible(selectedRange)
+    func addCustomBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonTap(_:)))
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+
+    func setupUI() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(adjustForKeyboard),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(adjustForKeyboard),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil)
+
+        self.textView.delegate = self
+
+        self.tableView.register(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "chatMessage")
+        self.tableView.allowsSelection = false
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44
+        self.tableView.contentInsetAdjustmentBehavior = .never
+
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            if self.viewModel?.chatMode == .server {
+                self.bottomConstraint.constant = -self.sendMessageContainerView.frame.height
+            }
+        }
+    }
+
+    @objc
+    func backButtonTap(_ sender: Any) {
+
+        let title: String
+        let message: String
+
+        switch self.viewModel?.chatMode {
+        case .server:
+            title = "Остановить сервер?"
+            message = "Чат остановится, но все сообщения останутся доступными при следующем запуске сервера."
+        default:
+            title = "Выйти из чата?"
+            message = ""
+        }
+
+        let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+         // Create OK button with action handler
+        let cancel = UIAlertAction(title: "Нет", style: .cancel, handler: { _ in
+
+        })
+
+        let ok = UIAlertAction(title: "Да", style: .default, handler: { _ in
+            self.viewModel?.stopChat()
+        })
+
+        dialog.addAction(cancel)
+        dialog.addAction(ok)
+        self.present(dialog, animated: true, completion: nil)
     }
 }
 
