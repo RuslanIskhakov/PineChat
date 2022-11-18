@@ -50,7 +50,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
             guard let self else { return }
             self.title.onNext(
                 self.chatMode == .server ?
-                "\(self.appModel.appSettingsModel.serverIPAddress):\(self.appModel.appSettingsModel.portNumber)" :
+                "\(self.appModel.connectivityUtils.getIP() ?? "???"):\(self.appModel.appSettingsModel.portNumber)" :
                 "Чат у сосны"
             )
 

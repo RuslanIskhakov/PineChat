@@ -141,6 +141,13 @@ class WebSocketServer: BaseIOInitialisable {
         }))
     }
 
+    func sendMessageToAllClients(_ data: Data?) {
+        guard let data else { return }
+        self.connectedClients.forEach{ connection in
+            try? self.sendMessageToClient(data: data, client: connection)
+        }
+    }
+
     func stopServer() {
         listener?.cancel()
         listener = nil

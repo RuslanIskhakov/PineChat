@@ -73,11 +73,7 @@ extension ServerModel: WebSocketServerDelegate {
         let message = self.messagesCoder.decodeClientMessage(from: data)
         print("Message received: \(message)")
 
-        if let postMessage = message as? PostNewChatMessage {
-            self.appModel?.coreDataModel.putNewMessage(postMessage)
-
-            return self.getNewChatMessagesAvailableMessageData()
-        } else if let requestMessage = message as? ChatMessagesRequest {
+        if let requestMessage = message as? ChatMessagesRequest {
             guard
                 let cdMessages = self.appModel?.coreDataModel.getMessages(
                 from: requestMessage.fromId,
@@ -108,6 +104,8 @@ extension ServerModel: SocketMessageParserServerSideDelegate {
     }
 
     func chatMessagesPosted(_ message: PostNewChatMessage) {
-
+        self.appModel?.coreDataModel.putNewMessage(message)
+        let data = self.getNewChatMessagesAvailableMessageData()
+        self.server?.sendMessageToAllClients(data)
     }
 }
