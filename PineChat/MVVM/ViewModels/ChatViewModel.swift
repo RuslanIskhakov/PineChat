@@ -12,6 +12,10 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     private let appModel: AppModelProtocol
 
+    private lazy var username: String = {
+        self.appModel.appSettingsModel.username
+    }()
+
     required init(with appModel: AppModelProtocol) {
         self.appModel = appModel
     }
@@ -94,6 +98,28 @@ private extension ChatViewModel {
                 .subscribe(onNext: { [weak self] _ in
                     guard let self else { return }
                     self.showLastMessages()
+                })
+                .disposed(by: self.disposeBag)
+        } else {
+            self.appModel.clientModel.chatMessagesFromServer
+                .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+                .observe(on: SerialDispatchQueueScheduler(qos: .utility))
+                .subscribe(onNext: { [weak self] response in
+                    guard let self else { return }
+                    let newMessages = response.chatMessages
+                        .map{ChatMessageEntity(
+                            id: $0.id,
+                            date: $0.date,
+                            userName: $0.userName,
+                            text: $0.text,
+                            type: $0.userName == self.username ? .outgoing : .incoming
+                        )}
+                    DispatchQueue.main.async {[weak self] in
+                        guard let self else { return }
+                        self.messages.removeAll()
+                        self.messages.append(contentsOf: newMessages)
+                        self.updateEvents.onNext(.updateAndScrollToBottom)
+                    }
                 })
                 .disposed(by: self.disposeBag)
         }

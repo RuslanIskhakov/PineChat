@@ -10,6 +10,8 @@ import RxSwift
 class ClientModel: BaseModelInitialisable, ClientModelProtocol {
     weak var appModel: AppModelProtocol?
 
+    let chatMessagesFromServer = PublishSubject<ChatMessagesResponse>()
+
     private var client: WebSocketClient?
     private let messagesCoder = SocketMessageCoder()
     private let queue = DispatchQueue(label: "ClientModel", qos: .utility)
@@ -115,6 +117,6 @@ extension ClientModel: SocketMessageParserClientSideDelegate {
     }
 
     func chatMessagesResponse(_ message: ChatMessagesResponse) {
-        print("message received: \(message)")
+        self.chatMessagesFromServer.onNext(message)
     }
 }
