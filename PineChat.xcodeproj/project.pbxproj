@@ -29,7 +29,6 @@
 		BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
-		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
 		BA8864182924F94700709971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8864162924F94700709971 /* Main.storyboard */; };
 		BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA8864192924F94700709971 /* PineChat.xcdatamodeld */; };
 		BA88641D2924F94A00709971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA88641C2924F94A00709971 /* Assets.xcassets */; };
@@ -99,7 +98,6 @@
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA8864142924F94700709971 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA8864172924F94700709971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA88641A2924F94700709971 /* PineChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PineChat.xcdatamodel; sourceTree = "<group>"; };
 		BA88641C2924F94A00709971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 				BA8864432925068B00709971 /* CoreData */,
 				BA8864102924F94700709971 /* AppDelegate.swift */,
 				BA8864122924F94700709971 /* SceneDelegate.swift */,
-				BA8864142924F94700709971 /* ViewController.swift */,
 				BA8864162924F94700709971 /* Main.storyboard */,
 				BA88641C2924F94A00709971 /* Assets.xcassets */,
 				BA88641E2924F94A00709971 /* LaunchScreen.storyboard */,
@@ -567,7 +564,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8864152924F94700709971 /* ViewController.swift in Sources */,
 				BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */,
 				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
 				BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */,

@@ -10,4 +10,5 @@ import Foundation
 protocol CoreDataModelProtocol {
     var appModel: AppModelProtocol? {get set}
     func getLastMessageId() -> String
+    func putNewMessage(_ message: PostNewChatMessage)
 }

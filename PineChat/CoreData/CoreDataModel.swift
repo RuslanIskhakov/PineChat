@@ -15,9 +15,9 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PineChat")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-        if let error = error as NSError? {
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
         })
         return container
     }()
@@ -27,19 +27,22 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
     }()
 
     func getLastMessageId() -> String {
-        ""
+        return self.getAllMessagesSortedByDate(limit: 1).first?.id ?? ""
     }
 
-    func putMessage(from: String, text: String, id: String) {
+    func putNewMessage(_ message: PostNewChatMessage) {
         self.context.perform {
-            let message = MessageEntity(context: self.context)
-            message.userName = from
-            message.text = text
-            message.id = UUID(uuidString: id)
+            let cdMessage = MessageEntity(context: self.context)
+            cdMessage.userName = message.userName
+            cdMessage.text = message.message
+            cdMessage.id = UUID()
 
             self.saveContext()
         }
     }
+}
+
+private extension CoreDataModel {
 
     func saveContext () {
         if context.hasChanges {
@@ -79,13 +82,13 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
         return result
     }
 
-    func getAllMessagesSortedByDate(limit: Int? = nil) -> [PersistantChatMessage]{
+    private func getAllMessagesSortedByDate(limit: Int? = nil, ascending: Bool = true) -> [PersistantChatMessage]{
 
         var result = [PersistantChatMessage]()
 
         self.context.performAndWait{
             let fetchRequest: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
-            let sort = NSSortDescriptor(key: "date", ascending: false)
+            let sort = NSSortDescriptor(key: "date", ascending: ascending)
             fetchRequest.sortDescriptors = [sort]
             if let limit {
                 fetchRequest.fetchLimit = limit

@@ -58,19 +58,31 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
     }
 }
 
+private extension ServerModel {
+    func getNewChatMessagesAvailableMessageData() -> Data? {
+        self.messagesCoder.encodeMessage(
+            NewChatMessagesAvailable(
+                lastMessageId: self.appModel?.coreDataModel.getLastMessageId() ?? ""
+            )
+        )
+    }
+}
+
 extension ServerModel: WebSocketServerDelegate {
     func dataReceived(_ data: Data) -> Data? {
         let message = self.messagesCoder.decodeClientMessage(from: data)
         print("Message received: \(message)")
+
+        if let postMessage = message as? PostNewChatMessage {
+            self.appModel?.coreDataModel.putNewMessage(postMessage)
+
+            return self.getNewChatMessagesAvailableMessageData()
+        }
         return nil
     }
 
     func newClientConnectionEstablished() -> Data? {
-        self.messagesCoder.encodeMessage(
-            NewChatMessagesAvailable(
-                lastMessageId: ""
-            )
-        )
+        self.getNewChatMessagesAvailableMessageData()
     }
 }
 
