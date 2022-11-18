@@ -29,7 +29,7 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
     }()
 
     func getLastMessageId() -> String {
-        return self.getAllMessagesSortedByDate(limit: 1).first?.id ?? ""
+        return self.getAllMessagesSortedByDate(limit: 1, ascending: false).first?.id ?? ""
     }
 
     func putNewMessage(_ message: PostNewChatMessage) {
@@ -48,8 +48,9 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
 
     func getMessages(from id: String, ahead: Bool, limit: Int) -> [PersistantChatMessage] {
 
+        var fromId = id.isEmpty ? self.getLastMessageId() : id
         guard
-            !id.isEmpty
+            !fromId.isEmpty
         else {return []}
 
         var result = [PersistantChatMessage]()
@@ -57,7 +58,7 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
         self.context.performAndWait{
             let fetchRequest1: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
             fetchRequest1.predicate = NSPredicate(
-                format: "id = %@", id
+                format: "id = %@", fromId
             )
             if let startDate = try? context.fetch(fetchRequest1).first?.date {
 
