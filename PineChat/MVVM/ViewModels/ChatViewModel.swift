@@ -20,7 +20,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     var chatMode: AppMode = .client
 
-    let updateEvents = PublishRelay<Void>()
+    let updateEvents = PublishSubject<UpdateEvent>()
 
     var messages = [ChatMessageEntity]()
 
@@ -33,9 +33,15 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
             self.appModel.clientModel.startClient()
         }
 
+        self.setupBindings()
+
         //self.fillWithDummyMessages()
 
-        self.updateEvents.accept(())
+        if self.chatMode == .server {
+            self.showLastMessages()
+        } else {
+            self.updateEvents.onNext(.update)
+        }
     }
 
     func postMessage(_ text: String) {
@@ -54,6 +60,36 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 }
 
 private extension ChatViewModel {
+
+    func showLastMessages() {
+        let lastId = self.appModel.coreDataModel.getLastMessageId()
+        let cdMessages =
+            self.appModel.coreDataModel.getMessages(from: lastId, ahead: false, limit: 10)
+            .map{ChatMessageEntity(
+                id: $0.id,
+                date: $0.date,
+                userName: $0.userName,
+                text: $0.text,
+                type: .incoming
+            )}
+        self.messages.removeAll()
+        self.messages.append(contentsOf: cdMessages)
+        self.updateEvents.onNext(.updateAndScrollToBottom)
+    }
+
+    func setupBindings() {
+        if self.chatMode == .server {
+            self.appModel.coreDataModel.newChatMessagePosted
+                .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] _ in
+                    guard let self else { return }
+                    self.showLastMessages()
+                })
+                .disposed(by: self.disposeBag)
+        }
+    }
+
     func fillWithDummyMessages() {
         self.messages.append(
             ChatMessageEntity(

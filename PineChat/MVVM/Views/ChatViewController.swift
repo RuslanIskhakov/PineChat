@@ -65,9 +65,15 @@ class ChatViewController: BaseViewController {
         self.viewModel?.updateEvents
             .observe(on: MainScheduler.instance)
             .subscribe(on: MainScheduler.instance)
-            .subscribe(onNext: {[weak self] _ in
+            .subscribe(onNext: {[weak self] event in
                 guard let self else { return }
-                self.tableView.reloadData()
+                switch event {
+                case .update:
+                    self.tableView.reloadData()
+                case .updateAndScrollToBottom:
+                    self.tableView.reloadData()
+                    self.tableView.scrollToBottom()
+                }
             }).disposed(by: self.disposeBag)
 
         self.viewModel?.viewState

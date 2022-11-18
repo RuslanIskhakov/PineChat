@@ -5,12 +5,14 @@
 //  Created by Ruslan Iskhakov on 16.11.2022.
 //
 
-import Foundation
+import RxSwift
 import CoreData
 
 class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
 
     weak var appModel: AppModelProtocol?
+
+    let newChatMessagePosted = PublishSubject<Void>()
 
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PineChat")
@@ -36,9 +38,55 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
             cdMessage.userName = message.userName
             cdMessage.text = message.message
             cdMessage.id = UUID()
+            cdMessage.date = Date()
 
             self.saveContext()
+
+            self.newChatMessagePosted.onNext(())
         }
+    }
+
+    func getMessages(from id: String, ahead: Bool, limit: Int) -> [PersistantChatMessage] {
+
+        guard
+            !id.isEmpty
+        else {return []}
+
+        var result = [PersistantChatMessage]()
+
+        self.context.performAndWait{
+            let fetchRequest1: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
+            fetchRequest1.predicate = NSPredicate(
+                format: "id = %@", id
+            )
+            if let startDate = try? context.fetch(fetchRequest1).first?.date {
+
+                let fetchRequest2: NSFetchRequest<MessageEntity> = MessageEntity.fetchRequest()
+
+                let sort = NSSortDescriptor(key: "date", ascending: ahead)
+                fetchRequest2.sortDescriptors = [sort]
+
+                if ahead {
+                    fetchRequest1.predicate = NSPredicate(
+                        format: "date >= %@", startDate as NSDate
+                    )
+                } else {
+                    fetchRequest1.predicate = NSPredicate(
+                        format: "date <= %@", startDate as NSDate
+                    )
+                }
+
+                fetchRequest2.fetchLimit = limit
+                if let messages = try? context.fetch(fetchRequest2) {
+                    result.append(contentsOf: messages.map{$0.toPersistantMessage()})
+                    if !ahead {
+                        result = result.reversed()
+                    }
+                }
+            }
+        }
+
+        return result
     }
 }
 

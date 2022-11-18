@@ -15,6 +15,11 @@ enum ChatViewStateEvent {
     case dismiss
 }
 
+enum UpdateEvent {
+    case update
+    case updateAndScrollToBottom
+}
+
 protocol ChatViewModelProtocol: AnyObject {
     init(with appModel: AppModelProtocol)
 
@@ -22,7 +27,7 @@ protocol ChatViewModelProtocol: AnyObject {
 
     var chatMode: AppMode {get}
 
-    var updateEvents: PublishRelay<Void> {get}
+    var updateEvents: PublishSubject<UpdateEvent> {get}
 
     var messages: [ChatMessageEntity] {get}
 
