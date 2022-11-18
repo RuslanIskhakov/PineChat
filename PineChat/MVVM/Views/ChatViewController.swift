@@ -14,6 +14,7 @@ class ChatViewController: BaseViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sendMessageContainerView: UIView!
 
     private var viewModel: ChatViewModelProtocol?
 
@@ -24,9 +25,9 @@ class ChatViewController: BaseViewController {
 
         self.title = "Чат у сосны"
 
-        self.viewModel?.configureView()
-
         self.setupBindings()
+
+        self.viewModel?.configureView()
 
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
@@ -49,6 +50,10 @@ class ChatViewController: BaseViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
         self.tableView.contentInsetAdjustmentBehavior = .never
+
+        if self.viewModel?.hideSendMessageUI == true {
+            self.bottomConstraint.constant = -self.sendMessageContainerView.frame.height
+        }
 
     }
 
@@ -95,7 +100,6 @@ class ChatViewController: BaseViewController {
                     self.tableView.insertRows(at: [IndexPath(row: 0,section: 0)], with: .automatic)
                 }, completion: nil)
             }).disposed(by: self.disposeBag)
-
     }
 }
 

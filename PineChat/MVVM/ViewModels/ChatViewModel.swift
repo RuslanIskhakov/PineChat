@@ -18,11 +18,15 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     let viewState = BehaviorRelay<ChatViewStateEvent>(value: .idle)
 
+    var hideSendMessageUI = false
+
     let updateEvents = PublishRelay<Void>()
 
     var messages = [ChatMessageEntity]()
 
     func configureView() {
+
+        if self.appModel.mode == .server {self.hideSendMessageUI = true}
 
         self.messages.append(
             ChatMessageEntity(

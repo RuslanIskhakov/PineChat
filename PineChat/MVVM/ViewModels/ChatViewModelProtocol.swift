@@ -19,6 +19,8 @@ protocol ChatViewModelProtocol: AnyObject {
 
     var viewState: BehaviorRelay<ChatViewStateEvent> {get}
 
+    var hideSendMessageUI: Bool {get}
+
     var updateEvents: PublishRelay<Void> {get}
 
     var messages: [ChatMessageEntity] {get}

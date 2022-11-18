@@ -144,6 +144,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="startServerTap:" destination="VkA-LB-TmD" eventType="touchUpInside" id="aaA-bE-pja"/>
+                                            <segue destination="4Rt-M8-t8Z" kind="show" id="JZF-c0-aVS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -360,6 +361,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="IdN-Qr-MHm" id="DFb-A7-bi4"/>
                         <outlet property="sendButton" destination="3Wm-Wc-gsK" id="Fzd-dt-KMo"/>
+                        <outlet property="sendMessageContainerView" destination="9Nz-iv-D4X" id="vuF-Uq-MKT"/>
                         <outlet property="tableView" destination="v29-xD-VCn" id="vEO-kk-Atv"/>
                         <outlet property="textView" destination="RaR-Xw-Yih" id="R6u-Vg-XnP"/>
                     </connections>
@@ -369,6 +371,9 @@
             <point key="canvasLocation" x="3664.6153846153843" y="134.36018957345971"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JZF-c0-aVS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
