@@ -23,8 +23,6 @@ class ChatViewController: BaseViewController {
 
         self.viewModel = ChatViewModel(with: AppDelegate.appModel)
 
-        self.title = "Чат у сосны"
-
         self.setupBindings()
 
         self.viewModel?.configureView()
@@ -87,6 +85,14 @@ class ChatViewController: BaseViewController {
                 default:
                     break
                 }
+            }).disposed(by: self.disposeBag)
+
+        self.viewModel?.title
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] title in
+                guard let self else { return }
+                self.title = title
             }).disposed(by: self.disposeBag)
     }
 }

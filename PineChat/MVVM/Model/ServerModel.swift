@@ -77,6 +77,22 @@ extension ServerModel: WebSocketServerDelegate {
             self.appModel?.coreDataModel.putNewMessage(postMessage)
 
             return self.getNewChatMessagesAvailableMessageData()
+        } else if let requestMessage = message as? ChatMessagesRequest {
+            guard
+                let cdMessages = self.appModel?.coreDataModel.getMessages(
+                from: requestMessage.fromId,
+                ahead: requestMessage.ahead,
+                limit: requestMessage.limit
+            )
+            else { return nil }
+
+            return self.messagesCoder.encodeMessage(
+                ChatMessagesResponse(
+                    fromId: requestMessage.fromId,
+                    ahead: requestMessage.ahead,
+                    chatMessages: cdMessages
+                )
+            )
         }
         return nil
     }

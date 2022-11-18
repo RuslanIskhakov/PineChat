@@ -63,7 +63,8 @@ class SocketMessageCoder {
 // client messages
 public struct ChatMessagesRequest: Codable {
     let fromId: String
-    let forward: Bool
+    let ahead: Bool
+    let limit: Int
 }
 
 public struct PostNewChatMessage: Codable {
@@ -85,7 +86,7 @@ public struct NewChatMessagesAvailable: Codable {
 
 public struct ChatMessagesResponse: Codable {
     let fromId: String
-    let forward: Bool
+    let ahead: Bool
     let chatMessages: [PersistantChatMessage]
 }
 

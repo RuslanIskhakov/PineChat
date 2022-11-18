@@ -16,11 +16,10 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
         self.appModel = appModel
     }
 
-    let viewState = BehaviorRelay<ChatViewStateEvent>(value: .idle)
-
     var chatMode: AppMode = .client
-
+    let viewState = BehaviorRelay<ChatViewStateEvent>(value: .idle)
     let updateEvents = PublishSubject<UpdateEvent>()
+    let title = PublishSubject<String>()
 
     var messages = [ChatMessageEntity]()
 
@@ -41,6 +40,16 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
             self.showLastMessages()
         } else {
             self.updateEvents.onNext(.update)
+        }
+
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            self.title.onNext(
+                self.chatMode == .server ?
+                "\(self.appModel.appSettingsModel.serverIPAddress):\(self.appModel.appSettingsModel.portNumber)" :
+                "Чат у сосны"
+            )
+
         }
     }
 

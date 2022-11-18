@@ -81,34 +81,40 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
     }
 }
 
+private extension ClientModel {
+    func requestChatMessages(from id: String, ahead: Bool, limit: Int) {
+        self.queue.async {[unowned self] in
+            guard
+                let data = self.messagesCoder.encodeMessage(
+                    ChatMessagesRequest(
+                        fromId: id,
+                        ahead: ahead,
+                        limit: 10)
+                )
+            else { return }
+
+            self.client?.send(data)
+        }
+    }
+}
+
 extension ClientModel: WebSocketClientDelegate {
     func messageReceived(_ data: Data) {
         guard
-            let message = self.messagesCoder.decodeServerMessage(from: data)
+            let _ = self.messagesCoder.decodeServerMessage(from: data)
         else {
             print("cannot decode data :(")
             return
-        }
-
-        print("message received: \(message)")
-
-        switch message {
-        case is NewChatMessagesAvailable:
-            break
-        case is ChatMessagesResponse:
-            break
-        default:
-            break
         }
     }
 }
 
 extension ClientModel: SocketMessageParserClientSideDelegate {
     func newChatMessagesAvailable(_ message: NewChatMessagesAvailable) {
-
+        self.requestChatMessages(from: message.lastMessageId, ahead: false, limit: 10)
     }
 
     func chatMessagesResponse(_ message: ChatMessagesResponse) {
-
+        print("message received: \(message)")
     }
 }
