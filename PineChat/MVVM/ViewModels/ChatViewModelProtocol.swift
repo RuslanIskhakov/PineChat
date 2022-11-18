@@ -18,6 +18,8 @@ enum ChatViewStateEvent {
 enum UpdateEvent {
     case update
     case updateAndScrollToBottom
+    case updateAndScrollToNextMessage
+    case updateAndScrollToPrevMessage
 }
 
 protocol ChatViewModelProtocol: AnyObject {
@@ -35,4 +37,6 @@ protocol ChatViewModelProtocol: AnyObject {
     func configureView()
     func postMessage(_ text: String)
     func stopChat()
+    func didScrollToTop()
+    func didScrollToBottom()
 }

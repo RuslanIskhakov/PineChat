@@ -81,9 +81,7 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
             self.client?.send(data)
         }
     }
-}
 
-private extension ClientModel {
     func requestChatMessages(from id: String, ahead: Bool, limit: Int) {
         self.queue.async {[unowned self] in
             guard

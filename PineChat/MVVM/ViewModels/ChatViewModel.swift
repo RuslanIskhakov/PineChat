@@ -38,8 +38,6 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
         self.setupBindings()
 
-        //self.fillWithDummyMessages()
-
         if self.chatMode == .server {
             self.showLastMessages()
         } else {
@@ -68,6 +66,24 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
         } else {
             self.appModel.clientModel.stopClient()
             self.viewState.accept(.dismiss)
+        }
+    }
+
+    func didScrollToTop() {
+        if self.chatMode == .client {
+            self.appModel.clientModel.requestChatMessages(
+                from: self.messages[self.messages.count - 1].id,
+                ahead: true,
+                limit: 10)
+            }
+        }
+
+    func didScrollToBottom() {
+        if self.chatMode == .client {
+            self.appModel.clientModel.requestChatMessages(
+                from: self.messages[self.messages.count - 1].id,
+                ahead: true,
+                limit: 10)
         }
     }
 }
@@ -106,132 +122,73 @@ private extension ChatViewModel {
                 .observe(on: SerialDispatchQueueScheduler(qos: .utility))
                 .subscribe(onNext: { [weak self] response in
                     guard let self else { return }
-                    let newMessages = response.chatMessages
-                        .map{ChatMessageEntity(
-                            id: $0.id,
-                            date: $0.date,
-                            userName: $0.userName,
-                            text: $0.text,
-                            type: $0.userName == self.username ? .outgoing : .incoming
-                        )}
-                    DispatchQueue.main.async {[weak self] in
-                        guard let self else { return }
-                        self.messages.removeAll()
-                        self.messages.append(contentsOf: newMessages)
-                        self.updateEvents.onNext(.updateAndScrollToBottom)
-                    }
+                    self.appendNewMessages(from: response)
                 })
                 .disposed(by: self.disposeBag)
         }
     }
 
-    func fillWithDummyMessages() {
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "123                                                                                          456",
-                type: .outgoing)
-        )
+    func appendNewMessages(from response: ChatMessagesResponse) {
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                type: .outgoing)
-        )
+        let newMessages = response.chatMessages
+            .map{ChatMessageEntity(
+                id: $0.id,
+                date: $0.date,
+                userName: $0.userName,
+                text: $0.text,
+                type: $0.userName == self.username ? .outgoing : .incoming
+            )}
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet",
-                type: .outgoing)
-        )
+        var oldMessages = self.messages
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "123",
-                type: .incoming)
-        )
+        if oldMessages.count == 0 {
+            self.replaceCurrentMessagesWith(
+                newMessages,
+                update: .updateAndScrollToBottom
+            )
+        } else {
+            let searchDepth = newMessages.count
+            if response.ahead {
+                let searchId = oldMessages[searchDepth - 1].id
+                for i in 0..<searchDepth-1 {
+                    if newMessages[i].id == searchId {
+                        oldMessages.append(contentsOf: newMessages[i+1..<searchDepth])
+                        self.replaceCurrentMessagesWith(
+                            oldMessages,
+                            update: .updateAndScrollToNextMessage
+                        )
+                        break
+                    }
+                }
+            } else {
+                let searchId = oldMessages[0].id
+                for i in 0..<searchDepth-1 {
+                    let j = searchDepth - 1 - i
+                    if newMessages[j].id == searchId {
+                        var appendedMessages = Array(newMessages[0..<j])
+                        appendedMessages.append(contentsOf: oldMessages)
+                        self.replaceCurrentMessagesWith(
+                            appendedMessages,
+                            update: .updateAndScrollToPrevMessage
+                        )
+                        break
+                    }
+                }
+            }
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov Ivan Ivanov Ivan Ivanov Ivan Ivanov Ivan Ivanov Ivan Ivanov ",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                type: .outgoing)
-        )
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet",
-                type: .outgoing)
-        )
+        }
+    }
 
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "123",
-                type: .outgoing)
-        )
-
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                type: .incoming)
-        )
-
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet",
-                type: .outgoing)
-        )
-
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "123",
-                type: .outgoing)
-        )
-
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                type: .outgoing)
-        )
-
-        self.messages.append(
-            ChatMessageEntity(
-                id: "",
-                date: Date(),
-                userName: "Ivan Ivanov",
-                text: "Lorem ipsum dolor sit amet",
-                type: .outgoing)
-        )
+    func replaceCurrentMessagesWith(
+        _ newMessages: [ChatMessageEntity],
+        update with: UpdateEvent
+    ) {
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            self.messages.removeAll()
+            self.messages.append(contentsOf: newMessages)
+            self.updateEvents.onNext(with)
+        }
     }
 }

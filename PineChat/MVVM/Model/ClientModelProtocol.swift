@@ -13,4 +13,5 @@ protocol ClientModelProtocol {
     func startClient()
     func stopClient()
     func postChatMessage(_ text: String)
+    func requestChatMessages(from id: String, ahead: Bool, limit: Int)
 }

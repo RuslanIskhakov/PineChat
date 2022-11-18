@@ -71,6 +71,12 @@ class ChatViewController: BaseViewController {
                 case .updateAndScrollToBottom:
                     self.tableView.reloadData()
                     self.tableView.scrollToBottom()
+                case .updateAndScrollToNextMessage:
+                    self.tableView.reloadData()
+                    self.tableView.scrollToBottom()
+                case .updateAndScrollToPrevMessage:
+                    self.tableView.reloadData()
+                    self.tableView.scrollToTop()
                 }
             }).disposed(by: self.disposeBag)
 
@@ -221,5 +227,11 @@ extension ChatViewController: UITableViewDataSource {
 }
 
 extension ChatViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.viewModel?.didScrollToTop()
+        } else if indexPath.row == self.viewModel?.messages.count {
+            self.viewModel?.didScrollToBottom()
+        }
+    }
 }
