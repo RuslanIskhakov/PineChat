@@ -71,20 +71,23 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
 
     func didScrollToTop() {
         if self.chatMode == .client {
+
+            guard self.messages.count > 0 else { return }
+
             self.appModel.clientModel.requestChatMessages(
-                from: self.messages[self.messages.count - 1].id,
-                ahead: true,
+                from: self.messages[0].id,
+                ahead: false,
                 limit: 10)
             }
         }
 
     func didScrollToBottom() {
-        if self.chatMode == .client {
-            self.appModel.clientModel.requestChatMessages(
-                from: self.messages[self.messages.count - 1].id,
-                ahead: true,
-                limit: 10)
-        }
+//        if self.chatMode == .client {
+//            self.appModel.clientModel.requestChatMessages(
+//                from: self.messages[self.messages.count - 1].id,
+//                ahead: true,
+//                limit: 10)
+//        }
     }
 }
 
@@ -93,7 +96,7 @@ private extension ChatViewModel {
     func showLastMessages() {
         let lastId = self.appModel.coreDataModel.getLastMessageId()
         let cdMessages =
-            self.appModel.coreDataModel.getMessages(from: lastId, ahead: false, limit: 10)
+            self.appModel.coreDataModel.getMessages(from: lastId, ahead: false, limit: 500)
             .map{ChatMessageEntity(
                 id: $0.id,
                 date: $0.date,
@@ -107,30 +110,32 @@ private extension ChatViewModel {
     }
 
     func setupBindings() {
-        if self.chatMode == .server {
-            self.appModel.coreDataModel.newChatMessagePosted
-                .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
-                .observe(on: MainScheduler.instance)
-                .subscribe(onNext: { [weak self] _ in
-                    guard let self else { return }
-                    self.showLastMessages()
-                })
-                .disposed(by: self.disposeBag)
-        } else {
-            self.appModel.clientModel.chatMessagesFromServer
-                .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
-                .observe(on: SerialDispatchQueueScheduler(qos: .utility))
-                .subscribe(onNext: { [weak self] response in
-                    guard let self else { return }
-                    self.appendNewMessages(from: response)
-                })
-                .disposed(by: self.disposeBag)
-        }
+
+        self.appModel.coreDataModel.newChatMessagePosted
+            .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self else { return }
+                guard self.chatMode == .server else { return }
+                self.showLastMessages()
+            })
+            .disposed(by: self.disposeBag)
+
+        self.appModel.clientModel.chatMessagesFromServer
+            .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .observe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .subscribe(onNext: { [weak self] response in
+                guard let self else { return }
+                guard self.chatMode == .client else { return }
+                self.appendNewMessages(from: response)
+            })
+            .disposed(by: self.disposeBag)
+
     }
 
     func appendNewMessages(from response: ChatMessagesResponse) {
 
-        let newMessages = response.chatMessages
+        var newMessages = response.chatMessages
             .map{ChatMessageEntity(
                 id: $0.id,
                 date: $0.date,
@@ -148,35 +153,29 @@ private extension ChatViewModel {
             )
         } else {
             let searchDepth = newMessages.count
-            if response.ahead {
-                let searchId = oldMessages[searchDepth - 1].id
-                for i in 0..<searchDepth-1 {
-                    if newMessages[i].id == searchId {
-                        oldMessages.append(contentsOf: newMessages[i+1..<searchDepth])
-                        self.replaceCurrentMessagesWith(
-                            oldMessages,
-                            update: .updateAndScrollToNextMessage
-                        )
-                        break
-                    }
+
+            if
+                let firstOldIndex = oldMessages.firstIndex(where: {$0.id == response.fromId}),
+                firstOldIndex < searchDepth - 1
+            {
+                let rowsToUpdate = response.chatMessages.count - 1 - firstOldIndex
+                if rowsToUpdate > 0 {
+                    newMessages.append(contentsOf: oldMessages[firstOldIndex+1..<oldMessages.count])
+                    self.replaceCurrentMessagesWith(
+                        newMessages,
+                        update: .performBatchUpdate(rowsToUpdate)
+                    )
                 }
             } else {
-                let searchId = oldMessages[0].id
-                for i in 0..<searchDepth-1 {
-                    let j = searchDepth - 1 - i
-                    if newMessages[j].id == searchId {
-                        var appendedMessages = Array(newMessages[0..<j])
-                        appendedMessages.append(contentsOf: oldMessages)
-                        self.replaceCurrentMessagesWith(
-                            appendedMessages,
-                            update: .updateAndScrollToPrevMessage
-                        )
-                        break
-                    }
+                let searchId = oldMessages[oldMessages.count - 1].id
+                if let firstNewIndex = newMessages.firstIndex(where: {$0.id == searchId}) {
+                    oldMessages.append(contentsOf: newMessages[firstNewIndex+1..<searchDepth])
+                    self.replaceCurrentMessagesWith(
+                        oldMessages,
+                        update: .updateAndScrollToNextMessage
+                    )
                 }
             }
-
-
         }
     }
 

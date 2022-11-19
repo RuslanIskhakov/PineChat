@@ -49,6 +49,7 @@ class ServerSettingsViewController: BaseViewController {
     }
     
     @IBAction func startServerTap(_ sender: Any) {
+        self.dismissKeyboard()
         self.viewModel?.setPortNumber(self.portNumberField.text ?? "")
         self.viewModel?.startServerTap()
     }

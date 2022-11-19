@@ -77,6 +77,14 @@ class ChatViewController: BaseViewController {
                 case .updateAndScrollToPrevMessage:
                     self.tableView.reloadData()
                     self.tableView.scrollToTop()
+                case .performBatchUpdate(let newRowsNum):
+                    var indexPathes = [IndexPath]()
+                    for i in 0..<newRowsNum {indexPathes.append(IndexPath(row: i, section: 0))}
+                    self.tableView.performBatchUpdates({
+                        self.tableView.insertRows(at: indexPathes, with: .automatic)
+                    }){[weak self] _ in
+                        self?.tableView.reloadData()
+                    }
                 }
             }).disposed(by: self.disposeBag)
 
@@ -118,7 +126,7 @@ private extension ChatViewController {
     }
 
     func addCustomBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+        let backButton = UIBarButtonItem(image: UIImage(named: "backIcon")?.withTintColor(self.view.tintColor),
                                          style: .plain,
                                          target: self,
                                          action: #selector(backButtonTap(_:)))
@@ -151,7 +159,7 @@ private extension ChatViewController {
         DispatchQueue.main.async {[weak self] in
             guard let self else { return }
             if self.viewModel?.chatMode == .server {
-                self.bottomConstraint.constant = -self.sendMessageContainerView.frame.height
+                self.bottomConstraint.constant = -(self.sendMessageContainerView.frame.height + self.view.safeAreaInsets.bottom)
             }
         }
     }
@@ -190,7 +198,7 @@ private extension ChatViewController {
 
 extension ChatViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        let rightButton = UIBarButtonItem(image: UIImage(named: "backIcon")?.withTintColor(self.view.tintColor), style: .done, target: self, action: #selector(dismissKeyboard))
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down")?.withTintColor(self.view.tintColor), style: .done, target: self, action: #selector(dismissKeyboard))
         navigationItem.rightBarButtonItem = rightButton
     }
 
@@ -228,10 +236,10 @@ extension ChatViewController: UITableViewDataSource {
 
 extension ChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            self.viewModel?.didScrollToTop()
-        } else if indexPath.row == self.viewModel?.messages.count {
-            self.viewModel?.didScrollToBottom()
+        if self.tableView.contentSize.height > self.tableView.frame.height {
+            if indexPath.row == 0 {
+                self.viewModel?.didScrollToTop()
+            }
         }
     }
 }

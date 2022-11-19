@@ -68,11 +68,11 @@ class CoreDataModel: BaseModelInitialisable, CoreDataModelProtocol {
                 fetchRequest2.sortDescriptors = [sort]
 
                 if ahead {
-                    fetchRequest1.predicate = NSPredicate(
+                    fetchRequest2.predicate = NSPredicate(
                         format: "date >= %@", startDate as NSDate
                     )
                 } else {
-                    fetchRequest1.predicate = NSPredicate(
+                    fetchRequest2.predicate = NSPredicate(
                         format: "date <= %@", startDate as NSDate
                     )
                 }

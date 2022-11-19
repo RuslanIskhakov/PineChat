@@ -20,6 +20,7 @@ enum UpdateEvent {
     case updateAndScrollToBottom
     case updateAndScrollToNextMessage
     case updateAndScrollToPrevMessage
+    case performBatchUpdate(Int)
 }
 
 protocol ChatViewModelProtocol: AnyObject {

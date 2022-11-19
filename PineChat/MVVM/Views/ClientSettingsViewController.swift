@@ -60,6 +60,7 @@ class ClientSettingsViewController: BaseViewController {
     }
 
     @IBAction func enterChat(_ sender: Any) {
+        self.dismissKeyboard()
         self.viewModel?.setUsername(self.usernameView.text ?? "")
         self.viewModel?.setServerIPAddress(self.ipAddressField.text ?? "")
         self.viewModel?.setPortNumber(self.portNumberField.text ?? "")
