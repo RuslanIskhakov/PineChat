@@ -116,6 +116,22 @@ class ChatViewController: BaseViewController {
                 guard let self else { return }
                 self.showServerErrorDialog()
             }).disposed(by: self.disposeBag)
+
+        self.viewModel?.clientError
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] in
+                guard let self else { return }
+                self.showClientErrorDialog()
+            }).disposed(by: self.disposeBag)
+
+        self.viewModel?.sendMessageError
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] in
+                guard let self else { return }
+                self.showSendMessageErrorDialog()
+            }).disposed(by: self.disposeBag)
     }
 }
 
@@ -205,7 +221,27 @@ private extension ChatViewController {
     func showServerErrorDialog() {
         let dialog = UIAlertController(title: "Ошибка сервера", message: "Не удалось поднять сокет-сервер. Пожалуйста, повторите через несколько минут или измените номер порта.", preferredStyle: .alert)
 
-        let ok = UIAlertAction(title: "Да", style: .default, handler: { _ in
+        let ok = UIAlertAction(title: "ОК", style: .default, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        })
+
+        dialog.addAction(ok)
+        self.present(dialog, animated: true, completion: nil)
+    }
+
+    func showClientErrorDialog() {
+        let dialog = UIAlertController(title: "Ошибка", message: "Сообщение не было отпарвлено. Пожалуйста, попробуйте позже.", preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
+
+        dialog.addAction(ok)
+        self.present(dialog, animated: true, completion: nil)
+    }
+
+    func showSendMessageErrorDialog() {
+        let dialog = UIAlertController(title: "Ошибка сервера", message: "Не удалось поднять сокет-сервер. Пожалуйста, повторите через несколько минут или измените номер порта.", preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: "ОК", style: .default, handler: { _ in
             self.viewModel?.stopChat()
         })
 

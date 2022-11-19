@@ -25,6 +25,8 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
     let updateEvents = PublishSubject<UpdateEvent>()
     let title = PublishSubject<String>()
     let serverError = PublishSubject<Void>()
+    let clientError = PublishSubject<Void>()
+    let sendMessageError = PublishSubject<Void>()
 
     var messages = [ChatMessageEntity]()
 
@@ -140,6 +142,27 @@ private extension ChatViewModel {
                 guard self.chatMode == .server else { return }
                 self.appModel.serverModel.stopServer()
                 self.serverError.onNext(())
+            })
+            .disposed(by: self.disposeBag)
+
+        self.appModel.clientErrorEvents
+            .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .observe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .subscribe(onNext: { [weak self] in
+                guard let self else { return }
+                guard self.chatMode == .client else { return }
+                self.appModel.clientModel.stopClient()
+                self.clientError.onNext(())
+            })
+            .disposed(by: self.disposeBag)
+
+        self.appModel.sendMessageErrorEvents
+            .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .observe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .subscribe(onNext: { [weak self] in
+                guard let self else { return }
+                guard self.chatMode == .client else { return }
+                self.sendMessageError.onNext(())
             })
             .disposed(by: self.disposeBag)
 

@@ -10,6 +10,7 @@ import RxRelay
 
 enum WebSocketClientStateEvents {
     case initial
+    case postChatMessageError
     case errorMessage(String)
     case error(Error)
     case opened(String)
@@ -59,7 +60,7 @@ final class WebSocketClient: NSObject {
 
                 switch result {
                 case .failure(let error):
-                    self.stateEvents.accept(.error(error))
+                    self.stateEvents.accept(.errorMessage(error.localizedDescription))
                 case .success(let webSocketTaskMessage):
                     switch webSocketTaskMessage {
                     case .string:
@@ -76,7 +77,7 @@ final class WebSocketClient: NSObject {
         }
     }
 
-    func send(_ data: Data) {
+    func send(_ data: Data, postingChatMessage: Bool = false) {
         self.queue.async {[unowned self] in
             guard let webSocket = self.webSocket else {
                 return
@@ -84,6 +85,7 @@ final class WebSocketClient: NSObject {
             webSocket.send(URLSessionWebSocketTask.Message.data(data)) {error in
                 if let error = error {
                     print("send data error: \(error.localizedDescription)")
+                    if postingChatMessage {self.stateEvents.accept(.postChatMessageError)}
                 }
             }
         }

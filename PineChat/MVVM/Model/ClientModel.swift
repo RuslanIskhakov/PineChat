@@ -47,12 +47,16 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
                     print("SocketClient state is initial")
                 case .errorMessage(let msg):
                     print("SocketClient error: \(msg)")
+                    self.appModel?.clientErrorEvents.onNext(())
                 case .error(let error):
                     print("SocketClient error: \(error.localizedDescription)")
                 case .opened(let msg):
                     print("SocketClient opened: \(msg)")
                 case .event(let msg):
                     print("SocketClient event: \(msg)")
+                case .postChatMessageError:
+                    print("SocketClient event: postChatMessageError")
+                    self.appModel?.sendMessageErrorEvents.onNext(())
                 }
             })
             .disposed(by: self.disposeBag)
@@ -78,7 +82,7 @@ class ClientModel: BaseModelInitialisable, ClientModelProtocol {
                     ))
             else { return }
 
-            self.client?.send(data)
+            self.client?.send(data, postingChatMessage: true)
         }
     }
 
