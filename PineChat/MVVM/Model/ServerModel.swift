@@ -36,6 +36,7 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
                     print("SocketServer state is initial")
                 case .errorMessage(let msg):
                     print("SocketServer error: \(msg)")
+                    self.appModel?.serverErrorEvents.onNext(())
                 case .error(let error):
                     print("SocketServer error: \(error.localizedDescription)")
                 case .opened(let msg):

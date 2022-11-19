@@ -14,7 +14,8 @@ class AppModelConfigurator {
             appSettingsModel: AppSettingsModel(),
             connectivityUtils: ConnectivityUtils(),
             serverModel: ServerModel(),
-            clientModel: ClientModel()
+            clientModel: ClientModel(),
+            hapticFeedbackModel: HapticFeedbackModel()
         )
     }
 }

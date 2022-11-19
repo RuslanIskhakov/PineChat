@@ -24,6 +24,7 @@ class ChatViewModel: BaseViewModel, ChatViewModelProtocol {
     let viewState = BehaviorRelay<ChatViewStateEvent>(value: .idle)
     let updateEvents = PublishSubject<UpdateEvent>()
     let title = PublishSubject<String>()
+    let serverError = PublishSubject<Void>()
 
     var messages = [ChatMessageEntity]()
 
@@ -131,6 +132,17 @@ private extension ChatViewModel {
             })
             .disposed(by: self.disposeBag)
 
+        self.appModel.serverErrorEvents
+            .subscribe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .observe(on: SerialDispatchQueueScheduler(qos: .utility))
+            .subscribe(onNext: { [weak self] in
+                guard let self else { return }
+                guard self.chatMode == .server else { return }
+                self.appModel.serverModel.stopServer()
+                self.serverError.onNext(())
+            })
+            .disposed(by: self.disposeBag)
+
     }
 
     func appendNewMessages(from response: ChatMessagesResponse) {
@@ -143,6 +155,10 @@ private extension ChatViewModel {
                 text: $0.text,
                 type: $0.userName == self.username ? .outgoing : .incoming
             )}
+
+        if let _ = newMessages.firstIndex(where: {$0.type == .incoming}) {
+            self.appModel.hapticFeedbackModel.makeFeedback()
+        }
 
         var oldMessages = self.messages
 

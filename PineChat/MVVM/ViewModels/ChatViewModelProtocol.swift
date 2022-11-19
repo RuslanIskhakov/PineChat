@@ -32,6 +32,7 @@ protocol ChatViewModelProtocol: AnyObject {
 
     var updateEvents: PublishSubject<UpdateEvent> {get}
     var title: PublishSubject<String> {get}
+    var serverError: PublishSubject<Void> {get}
 
     var messages: [ChatMessageEntity] {get}
 

@@ -108,6 +108,14 @@ class ChatViewController: BaseViewController {
                 guard let self else { return }
                 self.title = title
             }).disposed(by: self.disposeBag)
+
+        self.viewModel?.serverError
+            .observe(on: MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] in
+                guard let self else { return }
+                self.showServerErrorDialog()
+            }).disposed(by: self.disposeBag)
     }
 }
 
@@ -181,7 +189,6 @@ private extension ChatViewController {
 
         let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-         // Create OK button with action handler
         let cancel = UIAlertAction(title: "Нет", style: .cancel, handler: { _ in
 
         })
@@ -191,6 +198,17 @@ private extension ChatViewController {
         })
 
         dialog.addAction(cancel)
+        dialog.addAction(ok)
+        self.present(dialog, animated: true, completion: nil)
+    }
+
+    func showServerErrorDialog() {
+        let dialog = UIAlertController(title: "Ошибка сервера", message: "Не удалось поднять сокет-сервер. Пожалуйста, повторите через несколько минут или измените номер порта.", preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: "Да", style: .default, handler: { _ in
+            self.viewModel?.stopChat()
+        })
+
         dialog.addAction(ok)
         self.present(dialog, animated: true, completion: nil)
     }

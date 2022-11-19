@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */; };
 		9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */; };
+		BA00AF762929435000A74409 /* HapticFeedbackModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */; };
+		BA00AF782929438C00A74409 /* HapticFeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */; };
 		BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15529265F75006425BF /* AppModelProtocol.swift */; };
 		BA33F15829265FC6006425BF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15729265FC6006425BF /* AppModel.swift */; };
 		BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */; };
@@ -78,6 +80,8 @@
 		06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.debug.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.debug.xcconfig"; sourceTree = "<group>"; };
 		B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackModelProtocol.swift; sourceTree = "<group>"; };
+		BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackModel.swift; sourceTree = "<group>"; };
 		BA33F15529265F75006425BF /* AppModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelProtocol.swift; sourceTree = "<group>"; };
 		BA33F15729265FC6006425BF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelInitialisable.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				BA9A916E29276DEB00B806AA /* ServerModel.swift */,
 				BA9A91752927833900B806AA /* ClientModelProtocol.swift */,
 				BA9A91772927835700B806AA /* ClientModel.swift */,
+				BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */,
+				BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA00AF782929438C00A74409 /* HapticFeedbackModel.swift in Sources */,
 				BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */,
 				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
 				BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */,
@@ -590,6 +597,7 @@
 				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
 				BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */,
 				BA7D47412926734F002E340B /* ChatMessageTableViewCell.swift in Sources */,
+				BA00AF762929435000A74409 /* HapticFeedbackModelProtocol.swift in Sources */,
 				BA9A916F29276DEB00B806AA /* ServerModel.swift in Sources */,
 				BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */,
 				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,

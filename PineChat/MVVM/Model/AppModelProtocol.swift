@@ -5,7 +5,7 @@
 //  Created by Ruslan Iskhakov on 17.11.2022.
 //
 
-import Foundation
+import RxSwift
 
 enum AppMode {
     case server
@@ -24,4 +24,9 @@ protocol AppModelProtocol: AnyObject {
     var connectivityUtils: ConnectivityUtilsProtocol {get}
     var serverModel: ServerModelProtocol {get}
     var clientModel: ClientModelProtocol {get}
+    var hapticFeedbackModel: HapticFeedbackModelProtocol {get}
+
+    var serverErrorEvents: PublishSubject<Void> {get}
+    var clientErrorEvents: PublishSubject<Void> {get}
+    var sendMessageErrorEvents: PublishSubject<Void> {get}
 }
