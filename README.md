@@ -6,7 +6,7 @@
 
 ## Развертывание
 
-- Клонировать проект: `https://github.com/RuslanIskhakov/PineChat`
+- Клонировать проект: `git clone https://github.com/RuslanIskhakov/PineChat`
 - Настроить зависимости проекта: `pod install`
 - Открыть файл `PineChat.xcworkspace` в X code
 
