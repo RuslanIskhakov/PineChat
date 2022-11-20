@@ -88,7 +88,7 @@ class WebSocketServer: BaseIOInitialisable {
                 case .failed(let error):
                     self.stateEvents.accept(.error(error))
                 case .waiting(let error):
-                    self.stateEvents.accept(.error(error))
+                    self.stateEvents.accept(.errorMessage(error.localizedDescription))
                 default:
                     break
                 }
@@ -103,7 +103,7 @@ class WebSocketServer: BaseIOInitialisable {
             case .ready:
                 self.stateEvents.accept(.opened("Server Ready"))
             case .failed(let error):
-                self.stateEvents.accept(.error(error))
+                self.stateEvents.accept(.errorMessage(error.localizedDescription))
             default:
                 break
             }

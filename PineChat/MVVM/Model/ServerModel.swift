@@ -60,6 +60,7 @@ class ServerModel: BaseModelInitialisable, ServerModelProtocol {
             print("SocketServerModel.stopServer()")
             self.disposeBag = DisposeBag()
             self.server?.stopServer()
+            self.server = nil
         }
     }
 }

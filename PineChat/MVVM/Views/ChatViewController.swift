@@ -25,12 +25,14 @@ class ChatViewController: BaseViewController {
 
         self.setupBindings()
 
-        self.viewModel?.configureView()
-
         self.setupUI()
 
         self.addCustomBackButton()
 
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            self.viewModel?.configureView()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
