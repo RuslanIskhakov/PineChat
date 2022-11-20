@@ -3,13 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */; };
+		9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */; };
+		BA00AF762929435000A74409 /* HapticFeedbackModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */; };
+		BA00AF782929438C00A74409 /* HapticFeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */; };
+		BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15529265F75006425BF /* AppModelProtocol.swift */; };
+		BA33F15829265FC6006425BF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15729265FC6006425BF /* AppModel.swift */; };
+		BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */; };
+		BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15B29266042006425BF /* AppModelConfigurator.swift */; };
+		BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */; };
+		BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F15F292660DE006425BF /* BaseViewModel.swift */; };
+		BA33F16229266121006425BF /* ClientSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16129266121006425BF /* ClientSettingsViewModel.swift */; };
+		BA33F164292662A6006425BF /* AppSettingsModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */; };
+		BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F165292662B5006425BF /* AppSettingsModel.swift */; };
+		BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */; };
+		BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16B29266421006425BF /* ConnectivityUtils.swift */; };
+		BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33F16D29266E4F006425BF /* ChatViewController.swift */; };
+		BA7D47412926734F002E340B /* ChatMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D473F2926734F002E340B /* ChatMessageTableViewCell.swift */; };
+		BA7D47422926734F002E340B /* ChatMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA7D47402926734F002E340B /* ChatMessageTableViewCell.xib */; };
+		BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D4744292675EA002E340B /* ChatMessageEntity.swift */; };
+		BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474629267928002E340B /* ChatViewModelProtocol.swift */; };
+		BA7D474929267957002E340B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474829267957002E340B /* ChatViewModel.swift */; };
+		BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */; };
 		BA8864112924F94700709971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864102924F94700709971 /* AppDelegate.swift */; };
 		BA8864132924F94700709971 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864122924F94700709971 /* SceneDelegate.swift */; };
-		BA8864152924F94700709971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864142924F94700709971 /* ViewController.swift */; };
 		BA8864182924F94700709971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8864162924F94700709971 /* Main.storyboard */; };
 		BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA8864192924F94700709971 /* PineChat.xcdatamodeld */; };
 		BA88641D2924F94A00709971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA88641C2924F94A00709971 /* Assets.xcassets */; };
@@ -17,6 +38,25 @@
 		BA88642B2924F94A00709971 /* PineChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88642A2924F94A00709971 /* PineChatTests.swift */; };
 		BA8864352924F94A00709971 /* PineChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864342924F94A00709971 /* PineChatUITests.swift */; };
 		BA8864372924F94A00709971 /* PineChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */; };
+		BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */; };
+		BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */; };
+		BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88644A29250AE900709971 /* CoreDataModel.swift */; };
+		BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88644E29253B1700709971 /* ServerSettingsViewController.swift */; };
+		BA88645129253CC700709971 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645029253CC700709971 /* BaseViewController.swift */; };
+		BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645229253D0F00709971 /* ClientSettingsViewController.swift */; };
+		BA88645529253D2500709971 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88645429253D2500709971 /* MainViewController.swift */; };
+		BA9A9169292766EC00B806AA /* ServerSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */; };
+		BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */; };
+		BA9A916D29276DD200B806AA /* ServerModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A916C29276DD200B806AA /* ServerModelProtocol.swift */; };
+		BA9A916F29276DEB00B806AA /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A916E29276DEB00B806AA /* ServerModel.swift */; };
+		BA9A9172292776FE00B806AA /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9171292776FE00B806AA /* WebSocketServer.swift */; };
+		BA9A91742927772700B806AA /* BaseIOinitialisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91732927772700B806AA /* BaseIOinitialisable.swift */; };
+		BA9A91762927833900B806AA /* ClientModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91752927833900B806AA /* ClientModelProtocol.swift */; };
+		BA9A91782927835700B806AA /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A91772927835700B806AA /* ClientModel.swift */; };
+		BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A9179292783EB00B806AA /* WebSocketClient.swift */; };
+		BA9A917C292796BE00B806AA /* SocketMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A917B292796BE00B806AA /* SocketMessages.swift */; };
+		BA9A917E2927B06700B806AA /* CoreDataModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */; };
+		BA9A91802927CF9C00B806AA /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A917F2927CF9C00B806AA /* UITableView+Scroll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +77,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.debug.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.debug.xcconfig"; sourceTree = "<group>"; };
+		B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackModelProtocol.swift; sourceTree = "<group>"; };
+		BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackModel.swift; sourceTree = "<group>"; };
+		BA33F15529265F75006425BF /* AppModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F15729265FC6006425BF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelInitialisable.swift; sourceTree = "<group>"; };
+		BA33F15B29266042006425BF /* AppModelConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelConfigurator.swift; sourceTree = "<group>"; };
+		BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F15F292660DE006425BF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		BA33F16129266121006425BF /* ClientSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewModel.swift; sourceTree = "<group>"; };
+		BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModelProtocol.swift; sourceTree = "<group>"; };
+		BA33F165292662B5006425BF /* AppSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModel.swift; sourceTree = "<group>"; };
+		BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtilsProtocol.swift; sourceTree = "<group>"; };
+		BA33F16B29266421006425BF /* ConnectivityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUtils.swift; sourceTree = "<group>"; };
+		BA33F16D29266E4F006425BF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BA7D473F2926734F002E340B /* ChatMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageTableViewCell.swift; sourceTree = "<group>"; };
+		BA7D47402926734F002E340B /* ChatMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatMessageTableViewCell.xib; sourceTree = "<group>"; };
+		BA7D4744292675EA002E340B /* ChatMessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageEntity.swift; sourceTree = "<group>"; };
+		BA7D474629267928002E340B /* ChatViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelProtocol.swift; sourceTree = "<group>"; };
+		BA7D474829267957002E340B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICOlor+RGBinit.swift"; sourceTree = "<group>"; };
 		BA88640D2924F94700709971 /* PineChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864102924F94700709971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8864122924F94700709971 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA8864142924F94700709971 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA8864172924F94700709971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA88641A2924F94700709971 /* PineChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PineChat.xcdatamodel; sourceTree = "<group>"; };
 		BA88641C2924F94A00709971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +113,28 @@
 		BA8864302924F94A00709971 /* PineChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8864342924F94A00709971 /* PineChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITests.swift; sourceTree = "<group>"; };
 		BA8864362924F94A00709971 /* PineChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BA88644A29250AE900709971 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		BA88644E29253B1700709971 /* ServerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewController.swift; sourceTree = "<group>"; };
+		BA88645029253CC700709971 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		BA88645229253D0F00709971 /* ClientSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSettingsViewController.swift; sourceTree = "<group>"; };
+		BA88645429253D2500709971 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsViewModel.swift; sourceTree = "<group>"; };
+		BA9A916C29276DD200B806AA /* ServerModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A916E29276DEB00B806AA /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
+		BA9A9171292776FE00B806AA /* WebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServer.swift; sourceTree = "<group>"; };
+		BA9A91732927772700B806AA /* BaseIOinitialisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseIOinitialisable.swift; sourceTree = "<group>"; };
+		BA9A91752927833900B806AA /* ClientModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A91772927835700B806AA /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
+		BA9A9179292783EB00B806AA /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		BA9A917B292796BE00B806AA /* SocketMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMessages.swift; sourceTree = "<group>"; };
+		BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModelProtocol.swift; sourceTree = "<group>"; };
+		BA9A917F2927CF9C00B806AA /* UITableView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
+		BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChat.release.xcconfig"; path = "Target Support Files/Pods-PineChat/Pods-PineChat.release.xcconfig"; sourceTree = "<group>"; };
+		CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.debug.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineChatTests.release.xcconfig"; path = "Target Support Files/Pods-PineChatTests/Pods-PineChatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C9A2AED8B57D31B3A35269 /* Pods_PineChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9895C59C89F4FE0E009DE777 /* Pods_PineChatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +164,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA33F15329265F4A006425BF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F15F292660DE006425BF /* BaseViewModel.swift */,
+				BA33F15D292660C7006425BF /* ClientSettingsViewModelProtocol.swift */,
+				BA33F16129266121006425BF /* ClientSettingsViewModel.swift */,
+				BA7D474629267928002E340B /* ChatViewModelProtocol.swift */,
+				BA7D474829267957002E340B /* ChatViewModel.swift */,
+				BA9A9168292766EC00B806AA /* ServerSettingsViewModelProtocol.swift */,
+				BA9A916A2927673700B806AA /* ServerSettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BA33F15429265F51006425BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F15529265F75006425BF /* AppModelProtocol.swift */,
+				BA33F15729265FC6006425BF /* AppModel.swift */,
+				BA33F15929265FF1006425BF /* BaseModelInitialisable.swift */,
+				BA33F15B29266042006425BF /* AppModelConfigurator.swift */,
+				BA33F163292662A6006425BF /* AppSettingsModelProtocol.swift */,
+				BA33F165292662B5006425BF /* AppSettingsModel.swift */,
+				BA9A916C29276DD200B806AA /* ServerModelProtocol.swift */,
+				BA9A916E29276DEB00B806AA /* ServerModel.swift */,
+				BA9A91752927833900B806AA /* ClientModelProtocol.swift */,
+				BA9A91772927835700B806AA /* ClientModel.swift */,
+				BA00AF752929435000A74409 /* HapticFeedbackModelProtocol.swift */,
+				BA00AF772929438C00A74409 /* HapticFeedbackModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA33F167292663E8006425BF /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				BA9A917029276EB400B806AA /* WebSockets */,
+				BA33F168292663F2006425BF /* Connectivity */,
+				BA9A91732927772700B806AA /* BaseIOinitialisable.swift */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
+		BA33F168292663F2006425BF /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				BA33F16929266401006425BF /* ConnectivityUtilsProtocol.swift */,
+				BA33F16B29266421006425BF /* ConnectivityUtils.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		BA7D4743292675CB002E340B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D4744292675EA002E340B /* ChatMessageEntity.swift */,
+				BA9A917B292796BE00B806AA /* SocketMessages.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		BA7D474A29268187002E340B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D474B29268195002E340B /* UICOlor+RGBinit.swift */,
+				BA9A917F2927CF9C00B806AA /* UITableView+Scroll.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BA8864042924F94700709971 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +241,8 @@
 				BA8864292924F94A00709971 /* PineChatTests */,
 				BA8864332924F94A00709971 /* PineChatUITests */,
 				BA88640E2924F94700709971 /* Products */,
+				D30FA627B3927F9134357A4E /* Pods */,
+				ED99A793B2C11D39B2535F82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,9 +259,11 @@
 		BA88640F2924F94700709971 /* PineChat */ = {
 			isa = PBXGroup;
 			children = (
+				BA7D474A29268187002E340B /* Extensions */,
+				BA88644C29253AF100709971 /* MVVM */,
+				BA8864432925068B00709971 /* CoreData */,
 				BA8864102924F94700709971 /* AppDelegate.swift */,
 				BA8864122924F94700709971 /* SceneDelegate.swift */,
-				BA8864142924F94700709971 /* ViewController.swift */,
 				BA8864162924F94700709971 /* Main.storyboard */,
 				BA88641C2924F94A00709971 /* Assets.xcassets */,
 				BA88641E2924F94A00709971 /* LaunchScreen.storyboard */,
@@ -130,6 +290,72 @@
 			path = PineChatUITests;
 			sourceTree = "<group>";
 		};
+		BA8864432925068B00709971 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BA886446292506FE00709971 /* MessageEntity+CoreDataClass.swift */,
+				BA886447292506FE00709971 /* MessageEntity+CoreDataProperties.swift */,
+				BA88644A29250AE900709971 /* CoreDataModel.swift */,
+				BA9A917D2927B06700B806AA /* CoreDataModelProtocol.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BA88644C29253AF100709971 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				BA7D4743292675CB002E340B /* Entities */,
+				BA33F167292663E8006425BF /* IO */,
+				BA33F15429265F51006425BF /* Model */,
+				BA33F15329265F4A006425BF /* ViewModels */,
+				BA88644D29253AFA00709971 /* Views */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		BA88644D29253AFA00709971 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA88644E29253B1700709971 /* ServerSettingsViewController.swift */,
+				BA88645029253CC700709971 /* BaseViewController.swift */,
+				BA88645229253D0F00709971 /* ClientSettingsViewController.swift */,
+				BA88645429253D2500709971 /* MainViewController.swift */,
+				BA33F16D29266E4F006425BF /* ChatViewController.swift */,
+				BA7D473F2926734F002E340B /* ChatMessageTableViewCell.swift */,
+				BA7D47402926734F002E340B /* ChatMessageTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA9A917029276EB400B806AA /* WebSockets */ = {
+			isa = PBXGroup;
+			children = (
+				BA9A9171292776FE00B806AA /* WebSocketServer.swift */,
+				BA9A9179292783EB00B806AA /* WebSocketClient.swift */,
+			);
+			path = WebSockets;
+			sourceTree = "<group>";
+		};
+		D30FA627B3927F9134357A4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */,
+				BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */,
+				CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */,
+				E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED99A793B2C11D39B2535F82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8D7C8FE5FACB377B8B117B5 /* Pods_PineChat.framework */,
+				06982C9A9E8DF4207908C398 /* Pods_PineChatTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +363,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA88643A2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChat" */;
 			buildPhases = (
+				050AEEE0609DB96E563D863D /* [CP] Check Pods Manifest.lock */,
 				BA8864092924F94700709971 /* Sources */,
 				BA88640A2924F94700709971 /* Frameworks */,
 				BA88640B2924F94700709971 /* Resources */,
+				8E179B42B3A9A2579A1C6235 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,9 +382,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA88643D2924F94A00709971 /* Build configuration list for PBXNativeTarget "PineChatTests" */;
 			buildPhases = (
+				73C56F1585AF972446BF4555 /* [CP] Check Pods Manifest.lock */,
 				BA8864222924F94A00709971 /* Sources */,
 				BA8864232924F94A00709971 /* Frameworks */,
 				BA8864242924F94A00709971 /* Resources */,
+				5B5D597190E976F0A210CCA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +440,7 @@
 				};
 			};
 			buildConfigurationList = BA8864082924F94700709971 /* Build configuration list for PBXProject "PineChat" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -235,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8864202924F94A00709971 /* LaunchScreen.storyboard in Resources */,
+				BA7D47422926734F002E340B /* ChatMessageTableViewCell.xib in Resources */,
 				BA88641D2924F94A00709971 /* Assets.xcassets in Resources */,
 				BA8864182924F94700709971 /* Main.storyboard in Resources */,
 			);
@@ -256,15 +487,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		050AEEE0609DB96E563D863D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PineChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B5D597190E976F0A210CCA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PineChatTests/Pods-PineChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73C56F1585AF972446BF4555 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PineChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E179B42B3A9A2579A1C6235 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PineChat/Pods-PineChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA8864092924F94700709971 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8864152924F94700709971 /* ViewController.swift in Sources */,
+				BA00AF782929438C00A74409 /* HapticFeedbackModel.swift in Sources */,
+				BA7D4745292675EA002E340B /* ChatMessageEntity.swift in Sources */,
+				BA88645529253D2500709971 /* MainViewController.swift in Sources */,
+				BA33F16C29266421006425BF /* ConnectivityUtils.swift in Sources */,
+				BA9A917E2927B06700B806AA /* CoreDataModelProtocol.swift in Sources */,
+				BA33F160292660DE006425BF /* BaseViewModel.swift in Sources */,
+				BA33F164292662A6006425BF /* AppSettingsModelProtocol.swift in Sources */,
+				BA33F166292662B5006425BF /* AppSettingsModel.swift in Sources */,
+				BA7D474929267957002E340B /* ChatViewModel.swift in Sources */,
 				BA88641B2924F94700709971 /* PineChat.xcdatamodeld in Sources */,
+				BA9A9172292776FE00B806AA /* WebSocketServer.swift in Sources */,
+				BA88645329253D0F00709971 /* ClientSettingsViewController.swift in Sources */,
 				BA8864112924F94700709971 /* AppDelegate.swift in Sources */,
+				BA33F16229266121006425BF /* ClientSettingsViewModel.swift in Sources */,
+				BA33F15629265F75006425BF /* AppModelProtocol.swift in Sources */,
+				BA886448292506FE00709971 /* MessageEntity+CoreDataClass.swift in Sources */,
+				BA33F15A29265FF1006425BF /* BaseModelInitialisable.swift in Sources */,
+				BA9A91782927835700B806AA /* ClientModel.swift in Sources */,
+				BA9A91762927833900B806AA /* ClientModelProtocol.swift in Sources */,
+				BA33F15829265FC6006425BF /* AppModel.swift in Sources */,
+				BA88644F29253B1700709971 /* ServerSettingsViewController.swift in Sources */,
+				BA88645129253CC700709971 /* BaseViewController.swift in Sources */,
+				BA33F16E29266E4F006425BF /* ChatViewController.swift in Sources */,
+				BA7D47412926734F002E340B /* ChatMessageTableViewCell.swift in Sources */,
+				BA00AF762929435000A74409 /* HapticFeedbackModelProtocol.swift in Sources */,
+				BA9A916F29276DEB00B806AA /* ServerModel.swift in Sources */,
+				BA9A917A292783EB00B806AA /* WebSocketClient.swift in Sources */,
+				BA88644B29250AE900709971 /* CoreDataModel.swift in Sources */,
+				BA7D474729267928002E340B /* ChatViewModelProtocol.swift in Sources */,
+				BA9A916B2927673700B806AA /* ServerSettingsViewModel.swift in Sources */,
+				BA9A91802927CF9C00B806AA /* UITableView+Scroll.swift in Sources */,
+				BA9A917C292796BE00B806AA /* SocketMessages.swift in Sources */,
+				BA9A91742927772700B806AA /* BaseIOinitialisable.swift in Sources */,
+				BA33F15C29266042006425BF /* AppModelConfigurator.swift in Sources */,
+				BA7D474C29268195002E340B /* UICOlor+RGBinit.swift in Sources */,
+				BA886449292506FE00709971 /* MessageEntity+CoreDataProperties.swift in Sources */,
+				BA33F15E292660C7006425BF /* ClientSettingsViewModelProtocol.swift in Sources */,
 				BA8864132924F94700709971 /* SceneDelegate.swift in Sources */,
+				BA33F16A29266401006425BF /* ConnectivityUtilsProtocol.swift in Sources */,
+				BA9A916D29276DD200B806AA /* ServerModelProtocol.swift in Sources */,
+				BA9A9169292766EC00B806AA /* ServerSettingsViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +785,7 @@
 		};
 		BA88643B2924F94A00709971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56FF9A031E838CE75B6B6D80 /* Pods-PineChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -447,8 +797,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +815,7 @@
 		};
 		BA88643C2924F94A00709971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE6BDACAA2D961C54ABE3D9B /* Pods-PineChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,8 +827,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,6 +845,7 @@
 		};
 		BA88643E2924F94A00709971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCB4B29A7517FA0C8FF81E7B /* Pods-PineChatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +866,7 @@
 		};
 		BA88643F2924F94A00709971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E14E1606C1F806D9DF6EEDEA /* Pods-PineChatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
