@@ -229,8 +229,8 @@ private extension ChatViewController {
         self.present(dialog, animated: true, completion: nil)
     }
 
-    func showClientErrorDialog() {
-        let dialog = UIAlertController(title: "Ошибка", message: "Сообщение не было отпарвлено. Пожалуйста, попробуйте позже.", preferredStyle: .alert)
+    func showSendMessageErrorDialog() {
+        let dialog = UIAlertController(title: "Ошибка", message: "Сообщение не было отправлено. Пожалуйста, попробуйте позже", preferredStyle: .alert)
 
         let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
 
@@ -238,8 +238,8 @@ private extension ChatViewController {
         self.present(dialog, animated: true, completion: nil)
     }
 
-    func showSendMessageErrorDialog() {
-        let dialog = UIAlertController(title: "Ошибка сервера", message: "Не удалось поднять сокет-сервер. Пожалуйста, повторите через несколько минут или измените номер порта.", preferredStyle: .alert)
+    func showClientErrorDialog() {
+        let dialog = UIAlertController(title: "Ошибка подключения", message: "Не удалось подключиться к сокет-серверу. Пожалуйста, проверьте номер порта.", preferredStyle: .alert)
 
         let ok = UIAlertAction(title: "ОК", style: .default, handler: { _ in
             self.viewModel?.stopChat()

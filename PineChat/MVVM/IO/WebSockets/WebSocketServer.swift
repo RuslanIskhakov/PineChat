@@ -53,7 +53,7 @@ class WebSocketServer: BaseIOInitialisable {
                 self.stateEvents.accept(.errorMessage("Unable to start WebSocket server on port \(port)"))
             }
         } catch {
-            self.stateEvents.accept(.error(error))
+            self.stateEvents.accept(.errorMessage(error.localizedDescription))
         }
     }
 
@@ -71,7 +71,7 @@ class WebSocketServer: BaseIOInitialisable {
                 newConnection.receiveMessage {[unowned self] (data, context, isComplete, error) in
                     guard let data = data, let context = context else { return }
 
-                    print("WebSocketServer: received data of \(data.count)")
+                    self.stateEvents.accept(.event("WebSocketServer: received data of \(data.count)"))
                     self.handleReceived(data, for: newConnection)
                     self.serverQueue.asyncAfter(deadline: .now() + .microseconds(1000)) {
                         receive()

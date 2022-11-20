@@ -70,7 +70,7 @@ final class WebSocketClient: NSObject {
                         self.delegate?.messageReceived(data)
                         self.subscribeToService()
                     default:
-                        fatalError("Failed. Received unknown data format. Expected String")
+                        self.stateEvents.accept(.event("Failed. Received unknown data format."))
                     }
                 }
             })
