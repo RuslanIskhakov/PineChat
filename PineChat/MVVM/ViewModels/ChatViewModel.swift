@@ -179,10 +179,6 @@ private extension ChatViewModel {
                 type: $0.userName == self.username ? .outgoing : .incoming
             )}
 
-        if let _ = newMessages.firstIndex(where: {$0.type == .incoming}) {
-            self.appModel.hapticFeedbackModel.makeFeedback()
-        }
-
         var oldMessages = self.messages
 
         if oldMessages.count == 0 {

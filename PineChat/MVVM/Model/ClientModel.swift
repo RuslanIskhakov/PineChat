@@ -119,6 +119,7 @@ extension ClientModel: WebSocketClientDelegate {
 
 extension ClientModel: SocketMessageParserClientSideDelegate {
     func newChatMessagesAvailable(_ message: NewChatMessagesAvailable) {
+        self.appModel?.hapticFeedbackModel.makeFeedback()
         self.requestChatMessages(from: message.lastMessageId, ahead: false, limit: 10)
     }
 

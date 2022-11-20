@@ -32,6 +32,10 @@ class ChatViewController: BaseViewController {
         DispatchQueue.main.async {[weak self] in
             guard let self else { return }
             self.viewModel?.configureView()
+
+            if self.viewModel?.chatMode == .server {
+                self.bottomConstraint.constant = -(self.sendMessageContainerView.frame.height + self.view.safeAreaInsets.bottom)
+            }
         }
     }
 
@@ -181,13 +185,6 @@ private extension ChatViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
         self.tableView.contentInsetAdjustmentBehavior = .never
-
-        DispatchQueue.main.async {[weak self] in
-            guard let self else { return }
-            if self.viewModel?.chatMode == .server {
-                self.bottomConstraint.constant = -(self.sendMessageContainerView.frame.height + self.view.safeAreaInsets.bottom)
-            }
-        }
     }
 
     @objc
